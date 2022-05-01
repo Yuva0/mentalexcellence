@@ -1,0 +1,18 @@
+.coverpage{
+  width: 100%;
+  height:auto;
+  padding-top:32px;
+  margin:0px 0 42px 0;
+}
+
+.crown{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height:100px;
+}
+
+.crown img{
+  height: 100%;
+  object-fit: contain;
+}

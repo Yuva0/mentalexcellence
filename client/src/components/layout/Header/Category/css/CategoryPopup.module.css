@@ -1,0 +1,35 @@
+.popup{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top:4px;
+  padding:16px 21px;
+  white-space: nowrap;
+  border-radius:10px;
+  left: -30%;
+  top:200%;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 35%);
+  color:var(--colorTheme);
+  background-color: var(--backgroundColorTheme);
+}
+
+.popupItemCategory{
+  margin-bottom:8px;
+  width:100%;
+}
+
+
+
+.activeMenuItem{
+  text-decoration: underline;
+}
+
+.hidePopup{
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .popup{
+    padding:12px 16px;
+  }
+}

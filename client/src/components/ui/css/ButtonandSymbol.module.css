@@ -1,0 +1,18 @@
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding:10px;
+  border-radius: 5px;
+  color:white;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text{
+  margin-right:18px;
+}
+
+.faicon{
+  font-size:18px;
+}

@@ -1,0 +1,26 @@
+.mediumSetTitle{
+  margin-bottom: 12px;
+}
+
+.mediumSetCollection{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* padding:0 4%; */
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+/* iPad Devices */
+@media only screen and (max-width: 1000px) {
+  .mediumSetCollection{
+    gap:24px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .mediumSetCollection{
+    display: flex;
+    flex-direction: column;
+  }
+}

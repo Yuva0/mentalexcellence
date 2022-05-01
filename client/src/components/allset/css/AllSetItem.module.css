@@ -1,0 +1,169 @@
+.allSetWrapper{
+  /* width:350px; */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  transition: transform 0.5s;
+  flex-basis: 30%
+}
+
+.allSetWrapper:hover{
+  transform: scale(1.05);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.image{
+  position: relative;
+  width:100%;
+  border-radius: 10px 10px 0 0;
+  z-index: 1;
+}
+
+.image img{
+  width:100%;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+  z-index: -1;
+}
+
+.ribbon{
+  position: absolute;
+  z-index: 100;
+  width:90px;
+  max-width: 40%;
+  height:26px;
+  background-color: var(--mainTheme);
+  left:0;
+  top:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.ribbon::before{
+  content:"";
+  position: absolute;
+  left:100%;
+  top:0;
+  width:0;
+  height:0;
+  border-top:13px solid var(--mainTheme);
+  border-right:13px solid transparent
+}
+
+.ribbon::after{
+  content:"";
+  position: absolute;
+  left:100%;
+  top:50%;
+  width:0;
+  height:0;
+  border-bottom: 13px solid var(--mainTheme);
+  border-right: 13px solid transparent;
+}
+
+.content{
+  padding:10px 24px 24px 20px;
+}
+
+.title{
+  margin-bottom: 4px;
+  font-family: var(--titleFont);
+}
+
+.date{
+  color:grey;
+  margin-bottom: 6px;
+}
+
+.category{
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.description{
+  margin-bottom: 6px;
+  font-family: var(--descriptionFont);
+}
+
+.duration{
+  color:grey;
+}
+
+.durationGold{
+  color:var(--mainTheme);
+}
+
+@media only screen and (max-width: 800px) {
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 12px 10px 18px;
+    width: 60%;
+  }
+
+  .allSetWrapper{
+    width: 100%;
+  }
+
+  .allSetWrapper a{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .image{
+    width:40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image img{
+    max-width: 100%;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  .title, .date, .category, .description{
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .description{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .date{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .duration{
+    display: none;
+  }
+  .durationGold{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .allSetWrapper a{
+    flex-direction: column;
+  }
+
+  .image{
+    width: 100%;
+  }
+
+  .content{
+    width:100%;
+  }
+}
