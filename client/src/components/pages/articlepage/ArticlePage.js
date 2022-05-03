@@ -16,8 +16,8 @@ const ArticlePage = () => {
   const params = useParams();
   useEffect(() => {
     const fetchPost = async () => {
-      // const res = await axios.get("http://localhost:5000/api/posts/"+params.idTitle);
-      const res = await axiosInstance.get(params.idTitle);
+      const res = await axios.get("http://localhost:5000/api/posts/"+params.idTitle);
+      // const res = await axiosInstance.get(params.idTitle);
       setPost(res.data);
       setIsLoading(false);
     }

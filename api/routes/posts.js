@@ -46,8 +46,10 @@ router.get("/:idTitle", async (req,res) => {
 
 //GET ALL POSTS
 router.get("/", async (req,res) => {
-  const category = req.query.category;
   try{
+    const category = req.query.category;
+    const idTitle = req.query.idTitle;
+    const type = req.query.type;
     let posts,queryString;
 
     let query = {};
@@ -55,8 +57,14 @@ router.get("/", async (req,res) => {
     if(req.query.category){
       query.category = req.query.category;
     }
+    if(req.query.idTitle){
+      query.idTitle = req.query.idTitle;
+    }
     if(req.query.isDetailed){
       query.isDetailed = req.query.isDetailed;
+    }
+    if(req.query.type){
+      query.type = req.query.type;
     }
 
     if(req.query.limit){

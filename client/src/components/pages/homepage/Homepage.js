@@ -7,6 +7,7 @@ import CoverPage from '../../coverpage/CoverPage';
 
 import MediumSet from '../../mediumset/MediumSet';
 import AllSet from '../../allset/AllSet';
+import Qotd from '../../qotd/Qotd';
 
 // import TabularCollection from '../../components/Collection/TabularCollection/TabularCollection';
 // import SmallSetCollection from '../../components/Collection/SmallSetCollection/SmallSetCollection';
@@ -26,9 +27,10 @@ const Homepage = (props) => {
   // }, [])
   return (
     <div className={classes.homepage}>
-       {/* <CoverPage /> */}
-       {/* <MediumSet title="Latest Articles" time="latest"/> */}
-      <AllSet title="All Articles" time="latest"/>
+       <CoverPage />
+       <MediumSet title="Latest Articles" time="latest" type="article"/>
+      {/* <AllSet title="All Articles" time="latest" type="article"/> */}
+      <Qotd/>
     </div>
   );
 };

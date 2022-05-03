@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import classes from './css/AllSet.module.css';
-
 import AllSetItem from './AllSetItem';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
@@ -16,29 +14,29 @@ const AllSet = (props) => {
     const fetchPosts = async () => {
       // AllISet has all Items
       if (props.time === "latest") {
-        if(props.type === "article"){
-          // const res = await axios.get("http://localhost:5000/api/posts/?category="+props.category);
-          const res = await axiosInstance.get("posts/?category="+props.category);
+        if(props.category){
+          const res = await axios.get("http://localhost:5000/api/posts/?category="+props.category+"&type=article");
+          // const res = await axiosInstance.get("posts/?category="+props.category);
           setPosts(res.data);
         }
-        else{
-          // const res = await axios.get("http://localhost:5000/api/posts/");
-          const res = await axiosInstance.get("posts/");
+        else if(props.type === "article"){
+          const res = await axios.get("http://localhost:5000/api/posts/?type=article");
+          // const res = await axiosInstance.get("posts/");
           setPosts(res.data);
         }
       }
       else if(props.type === "detailed"){
-        // const res = await axios.get("http://localhost:5000/api/posts/?isDetailed=true");
-        const res = await axiosInstance.get("posts/?isDetailed=true");
+        const res = await axios.get("http://localhost:5000/api/posts/?isDetailed=true");
+        // const res = await axiosInstance.get("posts/?isDetailed=true");
         setPosts(res.data);
       }
       else{
-        // const res = await axios.get("http://localhost:5000/api/posts/?category="+props.type);
-        const res = await axiosInstance.get("posts/?category="+props.type);
+        const res = await axios.get("http://localhost:5000/api/posts/?category="+props.type);
+        // const res = await axiosInstance.get("posts/?category="+props.type);
         setPosts(res.data);
       }
       setIsLoading(false);
-    }
+    };
 
     fetchPosts();
   }, [props.time, props.type, props.category]);

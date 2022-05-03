@@ -1,38 +1,41 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import classes from './css/MediumSet.module.css';
 import MediumSetItem from './MediumSetItem';
+import callAxios from '../../util/callAxios';
+import { ReactSpinner } from 'react-spinning-wheel';
+import 'react-spinning-wheel/dist/style.css';
 
 const MediumSet = (props) => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL});
-
 
   useEffect(() => {
     const fetchPosts = async () => {
       // MediumSet has 3 Items
-
       if (props.time === "latest") {
-        if(props.type && props.type === "article"){
-          // const res = await axios.get("http://localhost:5000/api/posts/?category="+props.category+"&limit=3");
-          const res = await axiosInstance.get("?category="+props.category+"&limit=3");
+        if(props.category){
+          const res = await axios.get("http://localhost:5000/api/posts/?category="+props.category+"&limit=3&type=article");
+          // const res = await axiosInstance.get("posts/?category="+props.category);
+          setPosts(res.data);
+        }
+        else if(props.type === "article"){
+          const res = await axios.get("http://localhost:5000/api/posts/?type=article&limit=3");
+          // const res = await axiosInstance.get("posts/");
           setPosts(res.data);
         }
         else{
-          // const res = await axios.get("http://localhost:5000/api/posts/?limit=3");
-          const res = await axiosInstance.get("?limit=3");
+          const res =await callAxios("posts/?limit=3");
           setPosts(res.data);
         }
       }
       else if(props.type === "detailed"){
-        // const res = await axios.get("http://localhost:5000/api/posts/?isDetailed=true&limit=3");
-        const res = await axiosInstance.get("?isDetailed=true&limit=3");
+        const res =await callAxios("posts/?isDetailed=true&limit=3");
         setPosts(res.data);
       }
       else{
-        // const res = await axios.get("http://localhost:5000/api/posts/?category="+props.type+"&limit=3");
-        const res = await axiosInstance.get("?category="+props.type+"&limit=3");
+        const res =await callAxios("posts/?category="+props.type+"&limit=3");
         setPosts(res.data);
       }
     }

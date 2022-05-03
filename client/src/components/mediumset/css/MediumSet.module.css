@@ -5,14 +5,14 @@
 .mediumSetCollection{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  /* padding:0 4%; */
+  justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 48px;
   margin-bottom: 48px;
 }
 
 /* iPad Devices */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   .mediumSetCollection{
     gap:24px;
   }

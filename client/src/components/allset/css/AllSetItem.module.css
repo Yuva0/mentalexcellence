@@ -1,5 +1,4 @@
 .allSetWrapper{
-  /* width:350px; */
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -140,16 +139,13 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .date{
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 500px) {
   .duration{
     display: none;
   }
   .durationGold{
+    display: none;
+  }
+  .date{
     display: none;
   }
 }

@@ -67,6 +67,11 @@ a{
   text-decoration: none;
 }
 
+a:-webkit-any(){
+  color:var(--colorTheme);
+  text-decoration: none;
+}
+
 h1{
   margin:0;
   padding:0;

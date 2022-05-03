@@ -3,16 +3,14 @@ import classes from './css/MediumSetItem.module.css';
 import { Link } from 'react-router-dom';
 
 const MediumSetItem = (props) => {
-
   const date = new Date(props.date);
-
   const month = date.toLocaleString('en-US', { month: "long" });
   const day = date.toLocaleString('en-US', { day: '2-digit' });
   const year = date.getFullYear();
 
   let category;
   if (props.category) {
-    category = <div className={classes.category}><h5>{props.category.charAt(0).toUpperCase() + props.category.slice(1)} Perfection</h5></div>;
+    category = <div className={classes.category}><h5>{props.category.charAt(0).toUpperCase() + props.category.slice(1)}</h5></div>;
   }
 
   let ribbon;
