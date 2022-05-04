@@ -1,11 +1,11 @@
-import classes from './css/QotdLayout.module.css';
+import classes from './css/LineDiamondLine.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiamond } from "@fortawesome/free-solid-svg-icons";
 
 
-const QotdLayout = () => {
+const LineDiamondLine = () => {
     return (
-        <div className={classes.qotdLayoutWrapper}>
+        <div className={classes.lineDiamondLineWrapper}>
             <div className={classes.line}></div>
             <div className={classes.design}>
                 <FontAwesomeIcon className={classes.icon} icon={faDiamond}/>
@@ -17,4 +17,4 @@ const QotdLayout = () => {
     );
 };
 
-export default QotdLayout;
+export default LineDiamondLine;

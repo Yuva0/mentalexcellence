@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const postRoute = require("./routes/posts");
 const qotdRoute = require("./routes/qotd");
+const cardRoute = require("./routes/card");
 const cors = require("cors");
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use("/api/posts", postRoute);
 app.use("/api/qotd", qotdRoute);
+app.use("/api/card", cardRoute);
 
 app.listen("5000", () => {
   console.log("Backend is running");

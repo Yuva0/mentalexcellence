@@ -1,10 +1,10 @@
 import classes from './css/Qotd.module.css';
 import QotdContent from './QotdContent';
-import QotdLayout from './QotdLayout';
 import callAxios from '../../util/callAxios';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import { useState, useEffect } from 'react';
+import LineDiamondLine from '../ui/linediamondline/LineDiamondLine';
 
 const Qotd = () => {
     const [quote, setQuote] = useState([]);
@@ -36,10 +36,10 @@ const Qotd = () => {
     else{
         return (
             <div className={classes.qotdWrapper}> 
-            <QotdLayout/>
+            <LineDiamondLine/>
             <QotdContent quote = {quote[0].quote} author = {quote[0].author}/> 
-            <QotdLayout/>
-        </div>
+            <LineDiamondLine/>
+            </div>
         );
     }
 };
