@@ -32,7 +32,7 @@ const CoverPage = (props) => {
         setIsImageDiv(<div className={classes.crown}><img src={crown} alt="crown"/></div> );
       }
       else if(params.category === "awareness"){
-        const res = await callAxios("posts/?idTitle=what-is-awareness");
+        const res = await callAxios("posts/?category=awareness&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={awareness} alt="awareness"/></div> );
       }
@@ -47,7 +47,7 @@ const CoverPage = (props) => {
         setIsImageDiv(<div className={classes.crown}><img src={emotions} alt="emotions"/></div> );
       }
       else if(params.category === "mindset"){
-        const res = await callAxios("posts/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
+        const res = await callAxios("posts/?category=mindset&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={mindset} alt="mindset"/></div> );
       }

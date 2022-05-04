@@ -4,6 +4,7 @@
   height: auto;
   display: flex;
   justify-content: center;
+  min-height: 100vh;
   max-width: 80%;
   align-items: center;
   flex-direction: column;

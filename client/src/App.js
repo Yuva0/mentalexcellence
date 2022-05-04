@@ -3,6 +3,7 @@ import classes from './App.module.css';
 
 // Components
 import Header from './components/layout/Header/Header';
+import Footer from './components/layout/Footer/Footer';
 import Homepage from './components/pages/homepage/Homepage';
 import ArticlePage from './components/pages/articlepage/ArticlePage';
 import CategoryPage from './components/pages/categorypage/CategoryPage';
@@ -16,6 +17,7 @@ function App() {
         <Route path="/article/:idTitle" element={<ArticlePage/>}/>
         <Route path="/category/:category" element={<CategoryPage/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

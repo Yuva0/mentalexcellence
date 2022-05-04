@@ -29,7 +29,6 @@ const Homepage = (props) => {
     <div className={classes.homepage}>
        <CoverPage />
        <MediumSet title="Latest Articles" time="latest" type="article"/>
-      {/* <AllSet title="All Articles" time="latest" type="article"/> */}
       <Qotd/>
     </div>
   );

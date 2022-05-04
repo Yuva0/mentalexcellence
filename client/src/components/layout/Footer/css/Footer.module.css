@@ -1,0 +1,46 @@
+.footerWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    background-color: var(--mainTheme);
+    color:white;
+    padding:24px;
+}
+
+.footerTop{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--titleFont);
+}
+
+.footerTopSkills{
+    margin-top:4px;
+}
+
+.footerLogo{
+    max-width:100px;
+}
+
+.footerLogo img{
+    width: 100%;
+}
+
+.footerBottom{
+    margin:36px 0 12px 0;
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+}
+
+.footerBottom div{
+    margin:0 16px;
+}
+
+.footerBottom div a{
+    color:white;
+}

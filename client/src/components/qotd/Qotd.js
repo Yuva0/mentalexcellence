@@ -11,13 +11,18 @@ const Qotd = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        let isMounted = true
         const fetchQuote = async() => {
             const res = await callAxios("qotd/");
             setQuote(res.data);
             setIsLoading(false);
         }
-        fetchQuote();
-    });
+        if(isMounted){ 
+            fetchQuote();
+        }
+
+        return () => { isMounted = false };
+    }, []);
 
     if(isLoading){
         return (<div>
