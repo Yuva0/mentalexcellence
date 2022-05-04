@@ -17,7 +17,7 @@ function App() {
         <Route path="/article/:idTitle" element={<ArticlePage/>}/>
         <Route path="/category/:category" element={<CategoryPage/>}/>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

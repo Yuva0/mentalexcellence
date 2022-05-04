@@ -17,6 +17,7 @@ const CategoryPage = () => {
         setContent(<CardMediumSet category="philosopher" title="Greatest Philosophers of All Time!"/>);
       }
       else if(params.category === "mindset"){
+        setContent(<CardMediumSet category="mindset" title="Best Mindsets to Implement!"/>);
       }
       return () => { 
         setContent(); 

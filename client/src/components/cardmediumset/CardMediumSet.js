@@ -10,14 +10,16 @@ const CardMediumSet = (props) => {
     useEffect(() => {
         let isMounted = true;
         const fetchCards = async () => {
-            const res = await callAxios("card/?limit=6");
-            setCards(res.data);
+            if(props.category){
+                const res = await callAxios("card/?category="+props.category+"&limit=6");
+                setCards(res.data);
+            }
         }
         if(isMounted)
             fetchCards();
 
         return () => { isMounted = false };
-    },[]);
+    },[props.category]);
 
     let content;
     if (cards.length === 0){
