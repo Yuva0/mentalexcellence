@@ -26,7 +26,7 @@ const CardMediumSet = (props) => {
         content = <p>No Cards found</p>
     }
     else{
-        content = cards.map((card) => <li key={card.key}><CardMediumSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt}/></li>);
+        content = cards.map((card) => <li key={card.key}><CardMediumSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/></li>);
     }
 
     return (

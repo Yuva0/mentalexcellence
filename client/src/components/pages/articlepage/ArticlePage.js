@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import classes from './css/ArticlePage.module.css';
-import axios from "axios";
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 
 import ArticleHeader from '../../articlecontent/ArticleHeader';
 import ArticleBody from '../../articlecontent/ArticleBody';
+import callAxios from '../../../util/callAxios';
 
 const ArticlePage = () => {
   const [post, setPost] = useState([{title:"",content:"",date:""}]);
   const [isLoading, setIsLoading] = useState(true);
-  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL});
 
   const params = useParams();
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get("http://localhost:5000/api/posts/"+params.idTitle);
-      // const res = await axiosInstance.get(params.idTitle);
+      const res = await callAxios("posts/"+params.idTitle);
       setPost(res.data);
       setIsLoading(false);
     }
@@ -26,7 +24,9 @@ const ArticlePage = () => {
 
   if(isLoading){
     return (
-      <div className={classes.articlepage}><ReactSpinner/></div>
+      <div className={classes.articlepage}>
+        <ReactSpinner/>
+        </div>
     );
   }
   else{

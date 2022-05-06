@@ -1,28 +1,23 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import classes from './css/MediumSet.module.css';
 import MediumSetItem from './MediumSetItem';
 import callAxios from '../../util/callAxios';
-import { ReactSpinner } from 'react-spinning-wheel';
-import 'react-spinning-wheel/dist/style.css';
 
 const MediumSet = (props) => {
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL});
+  const params = useParams();
 
   useEffect(() => {
     const fetchPosts = async () => {
       // MediumSet has 3 Items
       if (props.time === "latest") {
-        if(props.category){
-          const res = await axios.get("http://localhost:5000/api/posts/?category="+props.category+"&limit=3&type=article");
-          // const res = await axiosInstance.get("posts/?category="+props.category);
+        if(params.category){
+          const res = await callAxios("posts/?category="+params.category+"&limit=3&type=article");
           setPosts(res.data);
         }
         else if(props.type === "article"){
-          const res = await axios.get("http://localhost:5000/api/posts/?type=article&limit=3");
-          // const res = await axiosInstance.get("posts/");
+          const res = await callAxios("posts/?type=article&limit=3");
           setPosts(res.data);
         }
         else{
@@ -41,7 +36,7 @@ const MediumSet = (props) => {
     }
 
     fetchPosts();
-  }, [props.time, props.type, props.category]);
+  }, [props.time, props.type, params.category]);
   
   let content;
 

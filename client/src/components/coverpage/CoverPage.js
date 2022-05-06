@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import classes from './css/CoverPage.module.css';
@@ -21,8 +20,6 @@ const CoverPage = (props) => {
   const [post, setPost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [imageDiv,setIsImageDiv] = useState(<div></div>);
-  
-  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL});
 
   useEffect(() => {
     const fetchPosts = async() => {
@@ -37,12 +34,12 @@ const CoverPage = (props) => {
         setIsImageDiv(<div className={classes.crown}><img src={awareness} alt="awareness"/></div> );
       }
       else if(params.category === "thoughts"){
-        const res = await callAxios("posts/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
+        const res = await callAxios("posts/?category=thoughts&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={thoughts} alt="thoughts"/></div> );
       }
       else if(params.category === "emotions"){
-        const res = await callAxios("posts/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
+        const res = await callAxios("posts/?category=emotions&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={emotions} alt="emotions"/></div> );
       }
@@ -52,17 +49,17 @@ const CoverPage = (props) => {
         setIsImageDiv(<div className={classes.crown}><img src={mindset} alt="mindset"/></div> );
       }
       else if(params.category === "psychology"){
-        const res = await callAxios("posts/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
+        const res = await callAxios("posts/?category=psychology&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={psychology} alt="psychology"/></div> );
       }
       else if(params.category === "philosophy"){
-        const res = await callAxios("posts/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
+        const res = await callAxios("posts/?category=philosophy&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={philosophy} alt="philosophy"/></div> );
       }
       else if(params.category === "productivity"){
-        const res = await callAxios("posts/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
+        const res = await callAxios("posts/?category=productivity&type=coverpage");
         setPost(res.data);
         setIsImageDiv(<div className={classes.crown}><img src={productivity} alt="productivity"/></div> );
       }

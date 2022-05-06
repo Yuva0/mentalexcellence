@@ -14,15 +14,12 @@ router.post("/",async (req, res) => {
 });
 
 // UPDATE POST
-router.put("/:quote", async (req, res) => {
+router.put("/", async (req, res) => {
   try{
-    const qotd = await Qotd.findById(req.params.quote);
     try{
-      const updatedQotd = await qotd.findByIdAndUpdate(req.params.id, {
-        $set: req.body
-      },
-      { new: true });
-      res.status(200).json(updatedQotd);
+      const updatedQotd = await Qotd.find({});
+      const saveQotd = await updatedQotd.save();
+      res.status(200).json(saveQotd);
     }
     catch(err){
       res.status(500).json(err);

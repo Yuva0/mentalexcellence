@@ -22,7 +22,7 @@ const CardSchema = new mongoose.Schema(
     },
     // can be philosopher/mindset etc
     category: {
-      type:String
+      type:Array
     },
     // can be new/old
     status:{

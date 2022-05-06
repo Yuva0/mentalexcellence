@@ -14,8 +14,13 @@ const NavigationButton = () => {
   const navRef = useRef();
   const buttonRef = useRef();
 
-  const toggleNavigationHandler = () => {
-    setToggleNavigation((prevToggleNavigation) => (!prevToggleNavigation));
+  const toggleNavigationHandler = (toggleNavigationValue) => {
+    if(toggleNavigationValue){
+      setToggleNavigation(() => (toggleNavigationValue));
+    }
+    else{
+      setToggleNavigation((prevToggleNavigation) => (!prevToggleNavigation));
+    }
   }
 
 
@@ -28,7 +33,7 @@ const NavigationButton = () => {
         <span className={classes.faicon}><FontAwesomeIcon icon={faBars} />
         </span>
       </button>
-      <NavigationPopup ref={navRef} toggleNavigation={toggleNavigation}/>
+      <NavigationPopup ref={navRef} toggleNavigation={toggleNavigation} toggleNavigationHandler={toggleNavigationHandler}/>
     </Fragment>
   );
 };
