@@ -18,9 +18,14 @@ const NavigationPopup = (props, ref) => {
     props.toggleNavigationHandler(false);
   }
 
+  const hideNavigationHome = () => {
+    setToggleCategoryList(() => false);
+    props.toggleNavigationHandler(false);
+  }
+
   return (
     <ul ref={ref} className={`${!props.toggleNavigation && classes.hidePopup} ${classes.popup}`}>
-      <li className={classes.popupItem}><NavLink className={({ isActive }) => (isActive ? `${classes.activeMenuItem}` : '')} exact="true" to="/" onClick={hideNavigation}><h4>Home</h4></NavLink></li>
+      <li className={classes.popupItem}><NavLink className={({ isActive }) => (isActive ? `${classes.activeMenuItem}` : '')} exact="true" to="/" onClick={hideNavigationHome}><h4>Home</h4></NavLink></li>
       <li className={`${classes.popupItem}`} onClick = {categoryListHandler}>
         <span className={classes.categoryItem}><h4>Category</h4>
         <FontAwesomeIcon icon={faSortDown}/>

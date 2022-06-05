@@ -12,6 +12,7 @@
   background-color: var(--backgroundColorTheme);
   text-align: left;
   transform: translate(-60%, 0);
+  z-index: 1;
 }
 
 .hidePopup{

@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import classes from './css/Header.module.css';
 import logo from '../../../assets/images/logo.png';
 import name from '../../../assets/images/name.png';
@@ -8,8 +11,22 @@ import CategoryButton from './Category/CategoryButton';
 
 
 const Header = (props) => {
+  const [hideShowIcon, setHideShowIcon] = useState(faAngleUp);
+  const [hideHeader, setHideHeader] = useState(false)
+
+
+  function hideShowHeader(){
+    if(hideShowIcon === faAngleUp){
+      setHideShowIcon(faAngleDown);
+    }
+    else{
+      setHideShowIcon(faAngleUp);
+    }
+    setHideHeader((toggleHeader) => !toggleHeader);
+  };
+
   return (
-    <div id="header" className={classes.header}>
+    <div id="header" className={`${classes.header} ${hideHeader && classes.hideHeader}`}>
       <div className={classes.headerItems}>
         <ul className={classes.leftItems}>
           <li className={classes.itemImage}><Link to="/"><img src={logo} alt="logo" /></Link></li>
@@ -23,6 +40,7 @@ const Header = (props) => {
           <li><SettingsButton/></li>
         </ul>
       </div>
+      <div className={classes.hideShowBtn} onClick={hideShowHeader}><FontAwesomeIcon style={{transform:"scale(2,1)"}} icon={hideShowIcon} /></div>
     </div>
   );
 };

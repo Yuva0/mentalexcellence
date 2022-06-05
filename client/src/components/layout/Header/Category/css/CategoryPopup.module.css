@@ -2,7 +2,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  margin-top:4px;
+  margin-top:1px;
   padding:16px 21px;
   white-space: nowrap;
   border-radius:10px;
@@ -11,6 +11,7 @@
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 35%);
   color:var(--colorTheme);
   background-color: var(--backgroundColorTheme);
+  z-index: 1;
 }
 
 .popupItemCategory{

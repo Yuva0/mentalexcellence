@@ -3,13 +3,19 @@
   position:fixed;
   z-index: 100;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height:80px;
   letter-spacing: 1px;
   justify-content: center;
+  align-items: center;
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 35%);
   color:var(--mainTheme);
   background-color: var(--backgroundColorTheme);
+  transition: transform 330ms ease-in-out;
+}
+
+.hideHeader{
+  transform: translate(0px, -80px);
 }
 
 .headerItems{
@@ -85,10 +91,26 @@
   color:var(--mainTheme);
 }
 
+.hideShowBtn{
+  position: absolute;
+  bottom: -20px;
+  right:150px;
+  width:50px;
+  height:20px;
+  background-color: var(--backgroundColorTheme);
+  color: grey;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+  box-shadow: rgb(0 0 0 / 15%) -4px 5px 5px 0px, rgb(0 0 0 / 15%) 4px 5px 5px 0px;
+  cursor: pointer;
+}
 /* Large Devices > 1200 && < 1500 */
 @media only screen and (max-width: 1500px) {
   .headerItems{
     width: var(--largeWidth);
+  }
+  .hideShowBtn{
+    right:100px
   }
 }
 
@@ -108,6 +130,10 @@
   .itemImage{
     height:80%;
   }
+
+  .hideShowBtn{
+    right:50px
+  }
 }
 
 /* Large Phones > 600 && < 800 */
@@ -118,7 +144,6 @@
 }
 
 @media only screen and (max-width: 800px) {
-
   .navigationButton{
     position: relative;
   }
@@ -148,5 +173,8 @@
   }
   .headerItems{
     max-width: 90%;
+  }
+  .hideShowBtn{
+    width: 35px;
   }
 }

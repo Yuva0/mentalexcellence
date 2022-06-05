@@ -12,10 +12,10 @@ const NavigationButton = () => {
   const [toggleNavigation, setToggleNavigation] = useState(false);
 
   const navRef = useRef();
-  const buttonRef = useRef();
+  const navBtnRef = useRef();
 
   const toggleNavigationHandler = (toggleNavigationValue) => {
-    if(toggleNavigationValue){
+    if(toggleNavigationValue === false || toggleNavigationValue === true){
       setToggleNavigation(() => (toggleNavigationValue));
     }
     else{
@@ -25,11 +25,11 @@ const NavigationButton = () => {
 
 
   // Hook for hiding component whenever the user clicks anywhere else
-  useButtonHide(buttonRef, navRef, setToggleNavigation);
+  useButtonHide(navBtnRef, navRef, setToggleNavigation);
 
   return (
     <Fragment>
-      <button ref={buttonRef} className={`${!toggleNavigation && classes.hideNav} ${classes.button}`} onClick={toggleNavigationHandler}>
+      <button ref={navBtnRef} className={`${!toggleNavigation && classes.hideNav} ${classes.button}`} onClick={toggleNavigationHandler}>
         <span className={classes.faicon}><FontAwesomeIcon icon={faBars} />
         </span>
       </button>
