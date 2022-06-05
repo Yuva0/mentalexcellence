@@ -15,7 +15,7 @@ const ArticlePage = () => {
   const params = useParams();
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await callAxios("posts/"+params.idTitle);
+      const res = await callAxios("articles/"+params.idTitle);
       setPost(res.data);
       setIsLoading(false);
     }
@@ -32,7 +32,7 @@ const ArticlePage = () => {
   else{
     return (
       <div className={classes.articlepage}>
-        <ArticleHeader title = {post[0].title} date={post[0].createdAt} author={post[0].author} category={post[0].category} type={post[0].type} coverImage={post[0].coverImage} duration = {post[0].duration} imageCaption = {post[0].imageCaption} imageAlt={post[0].imageAlt}/>
+        <ArticleHeader title = {post[0].title} date={post[0].createdAt} author={post[0].author} category={post[0].category} coverImage={post[0].coverImage} duration = {post[0].duration} imageCaption = {post[0].imageCaption} imageAlt={post[0].imageAlt}/>
         <ArticleBody content = {post[0].content}/>
       </div>
     );

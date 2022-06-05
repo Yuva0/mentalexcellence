@@ -10,7 +10,13 @@ const MediumSetItem = (props) => {
 
   let category;
   if (props.category) {
-    category = <div className={classes.category}><h5>{props.category.charAt(0).toUpperCase() + props.category.slice(1)}</h5></div>;
+    let categoryInner="";
+    for(let i=0;i<props.category.length-1;i++){
+      categoryInner = categoryInner + props.category[i].charAt(0).toUpperCase() + props.category[i].slice(1) + ", ";
+    }
+    let categoryVal = categoryInner+props.category[props.category.length-1].charAt(0).toUpperCase() + props.category[props.category.length-1].slice(1);
+    category = <div className={classes.category}><h5>{categoryVal}</h5></div>
+    // category = <div className={classes.category}><h5>{props.category.charAt(0).toUpperCase() + props.category.slice(1)}</h5></div>;
   }
 
   let ribbon;

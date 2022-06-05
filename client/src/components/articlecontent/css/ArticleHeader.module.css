@@ -53,3 +53,8 @@
   font-style: normal;
   word-spacing:normal;
 }
+
+.imageCaption a{
+  color: -webkit-link;
+  text-decoration: underline;
+}

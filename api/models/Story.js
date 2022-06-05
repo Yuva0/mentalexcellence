@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.Schema(
+const StorySchema = new mongoose.Schema(
   {
     title: {
       type:String,
@@ -33,10 +33,6 @@ const PostSchema = new mongoose.Schema(
     category:{
       type:String
     },
-    // 0 - coverpage, 1 - article, 2 - book review, 3 - short stories, 4 - quotes, 5 - card
-    mode:{
-      type:Number
-    },
     // 1 - short, 2 - medium, 3 - detailed
     durationType:{
       type:Number
@@ -48,4 +44,4 @@ const PostSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Post",PostSchema,"Posts");
+module.exports = mongoose.model("Story",StorySchema,"Stories");

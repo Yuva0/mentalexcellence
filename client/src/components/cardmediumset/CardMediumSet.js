@@ -11,7 +11,7 @@ const CardMediumSet = (props) => {
         let isMounted = true;
         const fetchCards = async () => {
             if(props.category){
-                const res = await callAxios("card/?category="+props.category+"&limit=6");
+                const res = await callAxios("cards/?category="+props.category+"&limit=6");
                 setCards(res.data);
             }
         }

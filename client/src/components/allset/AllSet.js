@@ -15,25 +15,15 @@ const AllSet = (props) => {
       // AllISet has all Items
       if (props.time === "latest") {
         if(props.category){
-          const res = await axios.get("http://localhost:5000/api/posts/?category="+props.category+"&type=article");
+          const res = await axios.get("http://localhost:5000/api/articles/?category="+props.category+"&coverpage=false");
           // const res = await axiosInstance.get("posts/?category="+props.category);
           setPosts(res.data);
         }
         else if(props.type === "article"){
-          const res = await axios.get("http://localhost:5000/api/posts/?type=article");
+          const res = await axios.get("http://localhost:5000/api/articles/?coverpage=false");
           // const res = await axiosInstance.get("posts/");
           setPosts(res.data);
         }
-      }
-      else if(props.type === "detailed"){
-        const res = await axios.get("http://localhost:5000/api/posts/?isDetailed=true");
-        // const res = await axiosInstance.get("posts/?isDetailed=true");
-        setPosts(res.data);
-      }
-      else{
-        const res = await axios.get("http://localhost:5000/api/posts/?category="+props.type);
-        // const res = await axiosInstance.get("posts/?category="+props.type);
-        setPosts(res.data);
       }
       setIsLoading(false);
     };

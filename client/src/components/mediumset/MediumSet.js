@@ -11,27 +11,15 @@ const MediumSet = (props) => {
   useEffect(() => {
     const fetchPosts = async () => {
       // MediumSet has 3 Items
-      if (props.time === "latest") {
+      if (props.time === "latest" && props.type === "article") {
         if(params.category){
-          const res = await callAxios("posts/?category="+params.category+"&limit=3&type=article");
-          setPosts(res.data);
-        }
-        else if(props.type === "article"){
-          const res = await callAxios("posts/?type=article&limit=3");
+          const res = await callAxios("articles/?category="+params.category+"&limit=3&coverpage=false"  );
           setPosts(res.data);
         }
         else{
-          const res =await callAxios("posts/?limit=3");
+          const res =await callAxios("articles/?limit=3&coverpage=false");
           setPosts(res.data);
         }
-      }
-      else if(props.type === "detailed"){
-        const res =await callAxios("posts/?isDetailed=true&limit=3");
-        setPosts(res.data);
-      }
-      else{
-        const res =await callAxios("posts/?category="+props.type+"&limit=3");
-        setPosts(res.data);
       }
     }
 
