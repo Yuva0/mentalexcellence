@@ -3,10 +3,9 @@ import { useEffect,useState } from 'react';
 
 import classes from './css/CategoryPage.module.css';
 
-// import AllSet from '../../allset/AllSet';
-import MediumSet from '../../mediumset/MediumSet';
+import ArticleSet from '../../articleset/ArticleSet.js';
 import CoverPage from '../../coverpage/CoverPage';
-import CardMediumSet from '../../cardmediumset/CardMediumSet';
+import CardSet from '../../cardset/CardSet';
 
 const CategoryPage = () => {
   const params = useParams();
@@ -14,25 +13,25 @@ const CategoryPage = () => {
 
   useEffect(() => {
       if(params.category === "awareness"){
-        setContent(<CardMediumSet category="awareness" title="Best Ways to Improve Your Awareness!"/>);
+        setContent(<CardSet category="awareness" title="Best Ways to Improve Your Awareness!"/>);
       }
       else if(params.category === "mindset"){
-        setContent(<CardMediumSet category="mindset" title="Best Mindsets to Implement!"/>);
+        setContent(<CardSet category="mindset" title="Best Mindsets to Implement!"/>);
       }
       else if(params.category === "thoughts"){
-        setContent(<CardMediumSet category="thoughts" title="Best Ways to improve your Thinking!"/>);
+        setContent(<CardSet category="thoughts" title="Best Ways to improve your Thinking!"/>);
       }
       else if(params.category === "emotions"){
-        setContent(<CardMediumSet category="emotions" title="How to become more Emotionally Strong!"/>);
+        setContent(<CardSet category="emotions" title="How to become more Emotionally Strong!"/>);
       }
       else if(params.category === "philosophy"){
-        setContent(<CardMediumSet category="philosopher" title="Greatest Philosophers of All Time!"/>);
+        setContent(<CardSet category="philosopher" title="Greatest Philosophers of All Time!"/>);
       }
       else if(params.category === "psychology"){
-        setContent(<CardMediumSet category="psychologist" title="Greatest Psychologists of All Time!"/>);
+        setContent(<CardSet category="psychologist" title="Greatest Psychologists of All Time!"/>);
       }
       else if(params.category === "productivity"){
-        setContent(<CardMediumSet category="productivity" title="Best Ways To Boost Productivity!"/>);
+        setContent(<CardSet category="productivity" title="Best Ways To Boost Productivity!"/>);
       }
       return () => { 
         setContent(); 
@@ -42,8 +41,7 @@ const CategoryPage = () => {
   return (
     <div className={classes.categorypage}>
       <CoverPage/>
-      {/* <MediumSet title="Latest Articles" time="latest" type="article" category={params.category}/> */}
-      <MediumSet title="Latest Articles" time="latest" type="article"/>
+      <ArticleSet title="Latest Articles" time="latest" type="article" limit="3"/>
       {content}
     </div>
   );

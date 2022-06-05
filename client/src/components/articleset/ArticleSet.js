@@ -1,30 +1,37 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import classes from './css/MediumSet.module.css';
-import MediumSetItem from './MediumSetItem';
+import classes from './css/ArticleSet.module.css';
+import ArticleSetItem from './ArticleSetItem.js';
 import callAxios from '../../util/callAxios';
 
-const MediumSet = (props) => {
+const ArticleSet = (props) => {
   const [posts, setPosts] = useState([]);
   const params = useParams();
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // MediumSet has 3 Items
       if (props.time === "latest" && props.type === "article") {
+        let query="";
         if(params.category){
-          const res = await callAxios("articles/?category="+params.category+"&limit=3&coverpage=false"  );
+          query = query + "category=" + params.category +"&";
+        }
+        if(props.limit){
+          query = query + "limit=" + props.limit +"&";
+        }
+        if(query){
+          const res = await callAxios("articles/?"+ query +"coverpage=false");
           setPosts(res.data);
         }
         else{
-          const res =await callAxios("articles/?limit=3&coverpage=false");
+          const res = await callAxios("articles/?coverpage=false");
           setPosts(res.data);
         }
+        
       }
     }
 
     fetchPosts();
-  }, [props.time, props.type, params.category]);
+  }, [props.time, props.type, params.category, props.limit]);
   
   let content;
 
@@ -33,7 +40,7 @@ const MediumSet = (props) => {
   }
   else {
     content = posts.map((post) =>
-      <MediumSetItem key={post._id} id={post._id} idTitle={post.idTitle} title={post.title} description={post.description} date={post.createdAt}
+      <ArticleSetItem key={post._id} id={post._id} idTitle={post.idTitle} title={post.title} description={post.description} date={post.createdAt}
       category={post.category} isDetailed = {post.isDetailed} coverImage={post.coverImage} imageAlt={post.imageAlt} duration={post.duration}/>
     );
   }
@@ -48,4 +55,4 @@ const MediumSet = (props) => {
   );
 };
 
-export default MediumSet;
+export default ArticleSet;

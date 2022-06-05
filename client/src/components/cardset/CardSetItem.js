@@ -1,4 +1,4 @@
-import classes from './css/CardMediumSetItem.module.css';
+import classes from './css/CardSetItem.module.css';
 
 
 const CardMediumSetItem = (props) => {

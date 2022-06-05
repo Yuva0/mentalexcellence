@@ -1,10 +1,10 @@
 import { useState,useEffect } from 'react';
-import classes from './css/CardMediumSet.module.css'
+import classes from './css/CardSet.module.css'
 import LineDiamondLine from '../ui/linediamondline/LineDiamondLine';
-import CardMediumSetItem from './CardMediumSetItem';
+import CardSetItem from './CardSetItem';
 import callAxios from '../../util/callAxios';
 
-const CardMediumSet = (props) => {
+const CardSet = (props) => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const CardMediumSet = (props) => {
         content = <p>No Cards found</p>
     }
     else{
-        content = cards.map((card) => <li key={card.key}><CardMediumSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/></li>);
+        content = cards.map((card) => <li key={card.key}><CardSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/></li>);
     }
 
     return (
@@ -41,4 +41,4 @@ const CardMediumSet = (props) => {
     );
 };
 
-export default CardMediumSet;
+export default CardSet;
