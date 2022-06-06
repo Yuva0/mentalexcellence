@@ -1,8 +1,11 @@
 import { useState,useEffect } from 'react';
 import classes from './css/CardSet.module.css'
+import {Link} from 'react-router-dom';
 import LineDiamondLine from '../ui/linediamondline/LineDiamondLine';
 import CardSetItem from './CardSetItem';
 import callAxios from '../../util/callAxios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 const CardSet = (props) => {
     const [cards, setCards] = useState([]);
@@ -23,7 +26,7 @@ const CardSet = (props) => {
                     setCards(res.data);
                 }
                 else{
-                    const res = await callAxios("articles/?"+query+"coverpage=false");
+                    const res = await callAxios("cards/?"+query+"coverpage=false");
                     setCards(res.data);
                 }
             }
@@ -46,7 +49,7 @@ const CardSet = (props) => {
     return (
         <div className={classes.cardMediumSetWrapper}> 
             <LineDiamondLine/>
-            <div className={classes.cardMediumSetTitle}><h4>{props.title}</h4></div>
+            <div className={classes.cardMediumSetTitle}><h4><Link to={"/cards"}>{props.title} <FontAwesomeIcon className={classes.rightIcon} icon={faArrowRightLong}/></Link></h4></div>
             <ul className={classes.cardMediumSetItemWrapper}>
                 {content}
             </ul>

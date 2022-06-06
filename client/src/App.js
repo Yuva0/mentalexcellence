@@ -7,6 +7,9 @@ import Footer from './components/layout/Footer/Footer';
 import Homepage from './components/pages/homepage/Homepage';
 import ArticlePage from './components/pages/articlepage/ArticlePage';
 import CategoryPage from './components/pages/categorypage/CategoryPage';
+import ArticlesPage from './components/pages/articlespage/ArticlesPage';
+import StoriesPage from './components/pages/storiespage/StoriesPage';
+import CardsPage from './components/pages/cardspage/CardsPage';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/article/:idTitle" element={<ArticlePage type="article"/>}/>
         <Route path="/story/:idTitle" element={<ArticlePage type="story"/>}/>
         <Route path="/category/:category" element={<CategoryPage/>}/>
+        <Route path="/articles/" element={<ArticlesPage/>}/>
+        <Route path="/stories/" element={<StoriesPage/>}/>
+        <Route path="/cards/" element={<CardsPage/>}/>
       </Routes>
       <Footer/>
     </div>

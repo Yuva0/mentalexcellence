@@ -14,6 +14,10 @@
   gap: 48px;
   margin-bottom: 24px;
 }
+
+.rightIcon{
+  font-size: 18px;
+}
   
 /* iPad Devices */
 @media only screen and (max-width: 1200px) {

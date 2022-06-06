@@ -10,3 +10,9 @@
     gap: 24px;
     margin-bottom: 48px;
 }
+
+@media only screen and (max-width: 800px) {
+    .storySetCollection{
+        row-gap:12px;
+    }
+}

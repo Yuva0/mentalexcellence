@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classes from './css/ArticleSet.module.css';
 import ArticleSetItem from './ArticleSetItem.js';
 import callAxios from '../../util/callAxios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 const ArticleSet = (props) => {
   const [posts, setPosts] = useState([]);
@@ -47,7 +50,7 @@ const ArticleSet = (props) => {
 
   return (
     <div className={classes.mediumSetWrapper}>
-      <div className={`${classes.mediumSetTitle} title`}><h3>{props.title}</h3></div>
+      <div className={`${classes.mediumSetTitle} title`}><h3><Link to={"/articles"}>{props.title} <FontAwesomeIcon className={classes.rightIcon} icon={faArrowRightLong}/></Link></h3></div>
       <div className={classes.mediumSetCollection}>
         {content}
       </div>
