@@ -10,16 +10,30 @@ const CardSet = (props) => {
     useEffect(() => {
         let isMounted = true;
         const fetchCards = async () => {
-            if(props.category){
-                const res = await callAxios("cards/?category="+props.category+"&limit=6");
-                setCards(res.data);
+            if (props.time === "latest" && props.type === "card") {
+                let query="";
+                if(props.category){
+                    query = query + "category=" + props.category +"&";
+                }
+                if(props.limit){
+                    query = query + "limit=" + props.limit +"&";
+                }
+                if(query){
+                    const res = await callAxios("cards/?"+ query +"coverpage=false");
+                    setCards(res.data);
+                }
+                else{
+                    const res = await callAxios("articles/?"+query+"coverpage=false");
+                    setCards(res.data);
+                }
             }
         }
+        
         if(isMounted)
             fetchCards();
 
         return () => { isMounted = false };
-    },[props.category]);
+    },[props.category,props.limit,props.time,props.type]);
 
     let content;
     if (cards.length === 0){

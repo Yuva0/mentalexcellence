@@ -55,6 +55,5 @@
 }
 
 .imageCaption a{
-  color: -webkit-link;
-  text-decoration: underline;
+  color:var(--mainTheme);
 }

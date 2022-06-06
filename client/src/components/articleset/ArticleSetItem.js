@@ -21,7 +21,7 @@ const ArticleSetItem = (props) => {
 
   let ribbon;
   let duration;
-  if (props.isDetailed === true){
+  if (props.durationType === 3){
     ribbon = <span className={classes.ribbon}><h5>Detailed</h5></span>
     duration = <div className={classes.durationGold}><h5>{props.duration} min read </h5></div>
   }

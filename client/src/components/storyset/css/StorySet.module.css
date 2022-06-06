@@ -1,0 +1,12 @@
+.storySetTitle{
+    margin-bottom: 12px;
+}
+
+.storySetCollection{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 48px;
+}

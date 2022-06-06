@@ -31,7 +31,10 @@ const StorySchema = new mongoose.Schema(
       type:String
     },
     category:{
-      type:String
+      type:Array
+    },
+    coverpage:{
+      type:Boolean
     },
     // 1 - short, 2 - medium, 3 - detailed
     durationType:{

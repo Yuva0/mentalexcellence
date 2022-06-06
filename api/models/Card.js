@@ -24,9 +24,8 @@ const CardSchema = new mongoose.Schema(
     category: {
       type:Array
     },
-    // can be new/old
-    status:{
-        type:String
+    coverpage: {
+      type:Boolean
     }
   },
   { timestamps: true }

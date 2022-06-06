@@ -8,19 +8,26 @@ import ArticleHeader from '../../articlecontent/ArticleHeader';
 import ArticleBody from '../../articlecontent/ArticleBody';
 import callAxios from '../../../util/callAxios';
 
-const ArticlePage = () => {
+const ArticlePage = (props) => {
   const [post, setPost] = useState([{title:"",content:"",date:""}]);
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await callAxios("articles/"+params.idTitle);
-      setPost(res.data);
-      setIsLoading(false);
+      if(props.type === "article"){
+        const res = await callAxios("articles/"+params.idTitle);
+        setPost(res.data);
+        setIsLoading(false);
+      }
+      else if(props.type === "story"){
+        const res = await callAxios("stories/"+params.idTitle);
+        setPost(res.data);
+        setIsLoading(false);
+      }
     }
     fetchPost();
-  },[params.idTitle]);
+  },[params.idTitle,props.type]);
 
   if(isLoading){
     return (
