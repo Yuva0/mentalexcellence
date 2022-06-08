@@ -36,7 +36,7 @@
 }
   
 .title{
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-family: var(--titleFont);
 }
   
@@ -47,7 +47,7 @@
   
 .category{
     width:100%;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
 }
   
 .description{
@@ -78,6 +78,9 @@
     .durationGold{
         display: none;
     }
+    .category{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -89,6 +92,15 @@
 @media only screen and (max-width: 400px) {
     .mediumSetWrapper{
         flex-basis: 100%;
+    }
+    .duration{
+        display: block;
+    }
+    .durationGold{
+        display: block;
+    }
+    .category{
+        display: block;
     }
 }
 

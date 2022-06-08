@@ -1,18 +1,29 @@
 .coverpage{
   width: 100%;
   height:auto;
-  padding-top:32px;
   margin:0px 0 42px 0;
 }
 
-.crown{
+.imageIcon{
   display: flex;
   justify-content: center;
   align-items:center;
   height:100px;
 }
 
-.crown img{
+.imageIcon img{
   height: 100%;
   object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+  .imageIcon {
+    height:80px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .imageIcon {
+    height:60px;
+  }
 }

@@ -43,16 +43,16 @@ const CardSet = (props) => {
         content = <p>No Cards found</p>
     }
     else{
-        content = cards.map((card) => <li key={card.key}><CardSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/></li>);
+        content = cards.map((card) => <CardSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/>);
     }
 
     return (
         <div className={classes.cardMediumSetWrapper}> 
             <LineDiamondLine/>
             <div className={classes.cardMediumSetTitle}><h4><Link to={"/cards"}>{props.title} <FontAwesomeIcon className={classes.rightIcon} icon={faArrowRightLong}/></Link></h4></div>
-            <ul className={classes.cardMediumSetItemWrapper}>
+            <div className={classes.cardMediumSetItemWrapper}>
                 {content}
-            </ul>
+            </div>
             <LineDiamondLine/>
         </div>
     );

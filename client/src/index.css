@@ -157,6 +157,9 @@ p{
   h5{
     font-size: 16px;
   }
+  h6{
+    font-size: 14px;
+  }
 }
 
 
@@ -176,6 +179,9 @@ p{
     font-size: 16px;
   }
   h5{
+    font-size: 14px;
+  }
+  h6{
     font-size: 14px;
   }
 }
