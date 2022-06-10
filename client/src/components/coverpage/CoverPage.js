@@ -3,14 +3,14 @@ import { useParams } from 'react-router-dom';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import classes from './css/CoverPage.module.css';
-// import crown from '../../assets/images/crown.png';
-// import awareness from '../../assets/images/thoughts.png';
-// import thoughts from '../../assets/images/thoughts.png';
-// import emotions from '../../assets/images/emotions.png';
-// import mindset from '../../assets/images/mindset.png';
-// import philosophy from '../../assets/images/philosophy.png';
-// import psychology from '../../assets/images/psychology.png';
-// import productivity from '../../assets/images/productivity.png';
+import crown from '../../assets/images/crown.png';
+import awareness from '../../assets/images/thoughts.png';
+import thoughts from '../../assets/images/thoughts.png';
+import emotions from '../../assets/images/emotions.png';
+import mindset from '../../assets/images/mindset.png';
+import philosophy from '../../assets/images/philosophy.png';
+import psychology from '../../assets/images/psychology.png';
+import productivity from '../../assets/images/productivity.png';
 import callAxios from '../../util/callAxios';
 
 import CoverPageArticle from './CoverPageArticle';
@@ -26,42 +26,42 @@ const CoverPage = (props) => {
       if(!params.category){
         const res = await callAxios("articles/?idTitle=why-should-you-strive-to-pursue-mental-excellence");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/ICD2KN0.png" alt="crown"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={crown} alt="crown"/></div> );
       }
       else if(params.category === "awareness"){
         const res = await callAxios("articles/?category=awareness&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/ArbjtzM.png" alt="awareness"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={awareness} alt="awareness"/></div> );
       }
       else if(params.category === "thoughts"){
         const res = await callAxios("articles/?category=thoughts&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/4KCK7xt.png" alt="thoughts"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={thoughts} alt="thoughts"/></div> );
       }
       else if(params.category === "emotions"){
         const res = await callAxios("articles/?category=emotions&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/mn0hSh8.png" alt="emotions"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={emotions} alt="emotions"/></div> );
       }
       else if(params.category === "mindset"){
         const res = await callAxios("articles/?category=mindset&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/7hUG5ua.png" alt="mindset"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={mindset} alt="mindset"/></div> );
       }
       else if(params.category === "psychology"){
         const res = await callAxios("articles/?category=psychology&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/fpcrhcZ.png" alt="psychology"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={psychology} alt="psychology"/></div> );
       }
       else if(params.category === "philosophy"){
         const res = await callAxios("articles/?category=philosophy&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/mzr7NSu.png" alt="philosophy"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={philosophy} alt="philosophy"/></div> );
       }
       else if(params.category === "productivity"){
         const res = await callAxios("articles/?category=productivity&coverpage=true");
         setPost(res.data);
-        setIsImageDiv(<div className={classes.imageIcon}><img src="https://i.imgur.com/bC0cL51.png" alt="productivity"/></div> );
+        setIsImageDiv(<div className={classes.imageIcon}><img src={productivity} alt="productivity"/></div> );
       }
       setIsLoading(false);
     };
