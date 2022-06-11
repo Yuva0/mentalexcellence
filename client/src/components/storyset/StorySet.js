@@ -4,8 +4,6 @@ import classes from './css/StorySet.module.css';
 import {Link} from 'react-router-dom';
 import StorySetItem from './StorySetItem.js';
 import callAxios from '../../util/callAxios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 const StorySet = (props) => {
   const [posts, setPosts] = useState([]);
@@ -50,7 +48,7 @@ const StorySet = (props) => {
 
   return (
     <div className={classes.storySetWrapper}>
-      <div className={`${classes.storySetTitle} title`}><h3><Link to={"/stories"}>{props.title} <FontAwesomeIcon className={classes.rightIcon} icon={faArrowRightLong}/></Link></h3></div>
+      <div className={`${classes.storySetTitle} title`}><h3><Link to={"/stories"}><span className={classes.arrow}>{props.title} </span></Link></h3></div>
       <div className={classes.storySetCollection}>
         {content}
       </div>
