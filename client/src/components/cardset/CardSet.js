@@ -4,9 +4,14 @@ import {Link} from 'react-router-dom';
 import LineDiamondLine from '../ui/linediamondline/LineDiamondLine';
 import CardSetItem from './CardSetItem';
 import callAxios from '../../util/callAxios';
+import ReactPaginate from "react-paginate";
+
+const PER_PAGE = 30;
 
 const CardSet = (props) => {
     const [cards, setCards] = useState([]);
+    
+    const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
         let isMounted = true;
@@ -36,12 +41,29 @@ const CardSet = (props) => {
         return () => { isMounted = false };
     },[props.category,props.limit,props.time,props.type]);
 
-    let content;
+    let currentPageData,pageCount,reactPaginate;
+
     if (cards.length === 0){
-        content = <p>No Cards found</p>
+        currentPageData = <p>No Cards found</p>
+        reactPaginate = undefined;
     }
     else{
-        content = cards.map((card) => <CardSetItem key={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/>);
+        pageCount = Math.ceil(cards.length / PER_PAGE);
+        const offset = currentPage * PER_PAGE;
+        currentPageData = cards.slice(offset, offset + PER_PAGE).map((card,index) => <CardSetItem key={index} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/>);
+
+        if(cards.length < PER_PAGE){
+            reactPaginate = undefined;
+        }
+        else{
+            reactPaginate = <ReactPaginate previousLabel={"Previous"} nextLabel={"Next"} pageCount={pageCount} onPageChange={handlePageClick} containerClassName={classes.pagination} previousLinkClassName={classes.pagination__link}
+            nextLinkClassName={classes.pagination__link} disabledClassName={classes.pagination__link__disabled} activeClassName={classes.pagination__link__active}/>
+        }    
+    }
+
+    function handlePageClick({ selected: selectedPage }) {
+        setCurrentPage(selectedPage);
+        window.scrollTo(0, 0);
     }
 
     return (
@@ -49,8 +71,9 @@ const CardSet = (props) => {
             <LineDiamondLine/>
             <div className={classes.cardMediumSetTitle}><h4><Link to={"/cards"}><span className={classes.arrow}>{props.title}</span></Link></h4></div>
             <div className={classes.cardMediumSetItemWrapper}>
-                {content}
+                {currentPageData}
             </div>
+            {reactPaginate}
             <LineDiamondLine/>
         </div>
     );

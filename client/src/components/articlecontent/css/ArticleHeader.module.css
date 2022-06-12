@@ -48,12 +48,10 @@
   border-radius: 2%;
 }
 
-.imageCaption{
-  font-size:16px;
-  font-style: normal;
-  word-spacing:normal;
-}
-
 .imageCaption a{
   color:var(--mainTheme);
+}
+
+.imageCaption p{
+  font-size: 14px;
 }

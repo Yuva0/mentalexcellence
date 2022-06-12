@@ -4,10 +4,15 @@ import {Link} from 'react-router-dom';
 import classes from './css/ArticleSet.module.css';
 import ArticleSetItem from './ArticleSetItem.js';
 import callAxios from '../../util/callAxios';
+import ReactPaginate from "react-paginate";
+
+const PER_PAGE = 12;
 
 const ArticleSet = (props) => {
   const [posts, setPosts] = useState([]);
   const params = useParams();
+
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -27,31 +32,47 @@ const ArticleSet = (props) => {
           const res = await callAxios("articles/?coverpage=false");
           setPosts(res.data);
         }
-        
       }
     }
 
     fetchPosts();
   }, [props.time, props.type, params.category, props.limit]);
   
-  let content;
+  let currentPageData,pageCount,reactPaginate;
 
   if (posts.length === 0) {
-    content = <p>No Posts found</p>
+    currentPageData = <p>No Posts found</p>
+    reactPaginate = undefined;
   }
   else {
-    content = posts.map((post) =>
-      <ArticleSetItem key={post._id} id={post._id} idTitle={post.idTitle} title={post.title} description={post.description} date={post.createdAt}
-      category={post.category} isDetailed = {post.isDetailed} coverImage={post.coverImage} imageAlt={post.imageAlt} duration={post.duration} durationType={post.durationType}/>
-    );
+    pageCount = Math.ceil(posts.length / PER_PAGE);
+    const offset = currentPage * PER_PAGE;
+    currentPageData = posts.slice(offset, offset + PER_PAGE).map((post,index) => <ArticleSetItem key={index} id={post._id} idTitle={post.idTitle} title={post.title} description={post.description} date={post.createdAt}
+    category={post.category} isDetailed = {post.isDetailed} coverImage={post.coverImage} imageAlt={post.imageAlt} duration={post.duration} durationType={post.durationType}/>);
+
+    if(posts.length < PER_PAGE){
+      reactPaginate = undefined;
+    }
+    else{
+      reactPaginate = <ReactPaginate previousLabel={"Previous"} nextLabel={"Next"} pageCount={pageCount} onPageChange={handlePageClick} containerClassName={classes.pagination} previousLinkClassName={classes.pagination__link}
+      nextLinkClassName={classes.pagination__link} disabledClassName={classes.pagination__link__disabled} activeClassName={classes.pagination__link__active}/>
+    }
   }
+
+  function handlePageClick({ selected: selectedPage }) {
+    setCurrentPage(selectedPage);
+    window.scrollTo(0, 0);
+  }
+
+ 
 
   return (
     <div className={classes.mediumSetWrapper}>
       <div className={`${classes.mediumSetTitle} title`}><h3><Link to={"/articles"}><span className={classes.arrow}>{props.title} </span></Link></h3></div>
       <div className={classes.mediumSetCollection}>
-        {content}
+        {currentPageData}
       </div>
+      {reactPaginate}
     </div>
   );
 };

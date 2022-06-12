@@ -41,7 +41,7 @@
 }
   
 .date{
-    color:grey;
+    color:var(--accentTheme);
     margin-bottom: 6px;
 }
   
@@ -56,7 +56,7 @@
 }
   
 .duration{
-    color:grey;
+    color:var(--accentTheme);
 }
   
 .durationGold{

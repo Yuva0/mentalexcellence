@@ -4,7 +4,7 @@ import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import classes from './css/CoverPage.module.css';
 import crown from '../../assets/images/crown.png';
-import awareness from '../../assets/images/thoughts.png';
+import awareness from '../../assets/images/awareness.png';
 import thoughts from '../../assets/images/thoughts.png';
 import emotions from '../../assets/images/emotions.png';
 import mindset from '../../assets/images/mindset.png';
