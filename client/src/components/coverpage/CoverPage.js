@@ -71,7 +71,7 @@ const CoverPage = (props) => {
 
   if(isLoading){
     return (<div>
-      <ReactSpinner/>
+      <ReactSpinner />
     </div>
     );
   }

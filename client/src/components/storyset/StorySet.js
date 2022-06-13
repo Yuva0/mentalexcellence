@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ReactSpinner } from 'react-spinning-wheel';
+import 'react-spinning-wheel/dist/style.css';
 import classes from './css/StorySet.module.css';
 import {Link} from 'react-router-dom';
 import StorySetItem from './StorySetItem.js';
@@ -10,6 +12,7 @@ const PER_PAGE = 20;
 
 const StorySet = (props) => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
     
   const [currentPage, setCurrentPage] = useState(0);
@@ -32,7 +35,7 @@ const StorySet = (props) => {
           const res = await callAxios("stories/?coverpage=false");
           setPosts(res.data);
         }
-        
+        setIsLoading(false);
       }
     }
 
@@ -41,7 +44,13 @@ const StorySet = (props) => {
   
   let currentPageData,pageCount,reactPaginate;
 
-  if (posts.length === 0) {
+  if(isLoading){
+    return (<div>
+      <ReactSpinner />
+    </div>
+    );
+  }
+  else if (posts.length === 0) {
     currentPageData = <p>No Stories found</p>
     reactPaginate = undefined;
   }

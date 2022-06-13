@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ReactSpinner } from 'react-spinning-wheel';
+import 'react-spinning-wheel/dist/style.css';
 import {Link} from 'react-router-dom';
 import classes from './css/ArticleSet.module.css';
 import ArticleSetItem from './ArticleSetItem.js';
@@ -10,6 +12,7 @@ const PER_PAGE = 12;
 
 const ArticleSet = (props) => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -33,6 +36,7 @@ const ArticleSet = (props) => {
           setPosts(res.data);
         }
       }
+      setIsLoading(false);
     }
 
     fetchPosts();
@@ -40,7 +44,13 @@ const ArticleSet = (props) => {
   
   let currentPageData,pageCount,reactPaginate;
 
-  if (posts.length === 0) {
+  if(isLoading){
+    return (<div>
+      <ReactSpinner />
+    </div>
+    );
+  }
+  else if (posts.length === 0) {
     currentPageData = <p>No Posts found</p>
     reactPaginate = undefined;
   }

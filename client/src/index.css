@@ -134,6 +134,10 @@ p{
   font-family: var(--titleFont);
 }
 
+.spin-wrapper .uil-spin-css > div > div{
+  background: var(--mainTheme) !important;
+}
+
 /* iPad Devices */
 @media only screen and (max-width: 1000px) {
   .homepage{

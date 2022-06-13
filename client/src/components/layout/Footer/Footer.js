@@ -1,5 +1,5 @@
 import classes from './css/Footer.module.css';
-import logoWhite from '../../../assets/images/logo_white.png';
+// import logoWhite from '../../../assets/images/logo_white.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -45,10 +45,10 @@ const Footer = () => {
                 <div className={classes.footerLinksDiv}>
                     <h4 className={classes.footerLinksDivTitle}>Company</h4>
                     <ul className={classes.footerLinksDivList}>
-                        <li><a target="_blank" href="https://www.privacypolicies.com/live/0a5b51a8-e89f-46ab-b04b-57fae01484bf"><h5>Privacy Policy</h5></a></li>
-                        <li><a target="_blank" href="https://www.privacypolicies.com/live/3c34addb-5a7d-4edd-8014-133e7c4c24bf"><h5>Terms &#38; Conditions</h5></a></li>
-                        <li><a target="_blank" href="https://www.privacypolicies.com/live/8012f3b7-c660-46d6-b1b5-cfc3cfe747ca"><h5>Cookies Policy</h5></a></li>
-                        <li><a target="_blank" href="https://www.privacypolicies.com/live/e9550bd4-e212-44e9-8bbc-c0ba61586045"><h5>Disclaimer</h5></a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.privacypolicies.com/live/0a5b51a8-e89f-46ab-b04b-57fae01484bf"><h5>Privacy Policy</h5></a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.privacypolicies.com/live/3c34addb-5a7d-4edd-8014-133e7c4c24bf"><h5>Terms &#38; Conditions</h5></a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.privacypolicies.com/live/8012f3b7-c660-46d6-b1b5-cfc3cfe747ca"><h5>Cookies Policy</h5></a></li>
+                        <li><a rel="noopener noreferrer" target="_blank" href="https://www.privacypolicies.com/live/e9550bd4-e212-44e9-8bbc-c0ba61586045"><h5>Disclaimer</h5></a></li>
                     </ul>
                 </div>
                 <div className={classes.footerLinksDiv}>

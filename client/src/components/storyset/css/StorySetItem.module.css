@@ -102,5 +102,7 @@
     .category{
         display: block;
     }
+    .title h5{
+        font-size: 16px;
+    }
 }
-
