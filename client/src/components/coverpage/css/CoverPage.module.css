@@ -16,9 +16,15 @@
   object-fit: contain;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   .imageIcon {
     height:80px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .imageIcon {
+    height:70px;
   }
 }
 

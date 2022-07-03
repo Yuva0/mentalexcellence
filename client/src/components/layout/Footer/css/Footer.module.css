@@ -1,133 +1,123 @@
-.footerWrapper{
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--mainTheme);
-    color:white;
-    padding:24px;
-    text-align: left;
+.footer{
+  width: 100%;
+  font-family: var(--titleFont);
+  padding-bottom:12px;
+  background-color: var(--mainTheme);
+  color:white;
+  display: flex;
+  justify-content: center;
 }
 
-.footerTop{
-    width: 100%;
-    max-width: 100%;
+.footerContent{
+  width: var(--verylargeWidth);
+  max-width: 80%;
+}
+
+.logoIcon{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--titleFont);
-    margin-top: 16px;
+    justify-content: flex-end;
+}
+.logoIcon img{
+    height: 60px;
+}
+
+.titleHeader{
+    margin-top: 24px;
     text-align: center;
 }
 
-.footerTopSkills{
-    margin-top:4px;
+.subTitleHeader{
+    text-align: center;
 }
 
-.footerLogo{
-    max-width:100px;
+.footerMenuComplete{
+  margin-left: 210px;
 }
 
-.footerLogo img{
-    width: 100%;
-}
-
-.footerLinks{
-    padding-top: 32px;
+.footerMenu{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 1200px;
-    max-width: 100%;
-    gap: 124px;
+    flex-direction: row;
+    margin-top: 21px;
 }
-
-.footerLinksDivList{
-    margin-top: 6px;
+.lastFooterMenu{
+    margin-bottom: 24px;
 }
-
-.footerLinksCategoryList{
+.footerMenuHeader{
+    width:150px;
+    min-width: 150px;
+    border-right: 1px solid grey;
+    color:black;
+}
+.footerMenuContent{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width:250px;
-    max-width: 100%;
+    row-gap:8px;
+    column-gap: 16px;
+    margin-left: 16px;
 }
-
-.footerLinksCategoryList li{
-    flex-basis: 50%;
+.footerMenuFollowLink{
+    font-size: 21px;
 }
-
-.footerLinksDivList li a{
-    color:white;
+.footerMenuContent li a{
+  color:white;
 }
-
-.footerLinksDivTitle{
-    margin-bottom: 16px;
-    position: relative;
-    display: inline-block;
-}
-
-.footerLinksDivTitle::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    background-color: white;
-    height:2px;
-    width: 100%;
-}
-
-.footerLinksDivList li{
-    color:white;
-    margin-bottom: 8px;
-}
-
-.footerLinksDivList li{
-    transition: transform 0.2s ease;
-}
-
-.footerLinksDivList li:hover{
-	transform: translateX(6px);
-}
-
-.footerLinksDivList li:hover a{
+.footerMenuContent li a:hover{
     color:black;
 }
 
-@media only screen and (max-width: 1000px) {
-    .footerLinks{
-        gap: 64px;
+/* Laptop Devices */
+@media only screen and (max-width: 1500px) {
+    .footerContent{
+      width: var(--largeWidth);
     }
-}
+    .footerMenuComplete{
+      margin-left: 100px;
+    }
+  }
+  
+  /* Large Tablet Devices */
+  @media only screen and (max-width: 1200px) {
+    .footerContent{
+      width: var(--mediumWidth);
+    }
+  }
+  
+  /* iPad Devices */
+  @media only screen and (max-width: 1000px) {
+    .footerContent{
+      width: var(--smallWidth);
+    }
+    .footerMenuComplete{
+      margin-left: 0px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .footerMenuHeader{
+        width:100px;
+        min-width: 100px;
+    }
+  }
 
-@media only screen and (max-width: 800px) {
-    .footerLinks{
-        gap: 32px;
+  @media only screen and (max-width: 700px) {
+    .footerContent{
+      max-width: 85%;
     }
-    .footerLinksCategoryList{
-        width: 180px;
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .footerContent{
+      max-width: 90%;
     }
-}
+    .logoIcon img{
+        height: 50px;
+    }
+  }
 
-@media only screen and (max-width: 600px) {
-    .footerLinks{
-        gap: 16px;
+  @media only screen and (max-width: 500px) {
+    .footerMenuHeader{
+        width:80px;
+        min-width: 80px;
     }
-    .footerLinksCategoryList{
-        width: 150px;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .footerLinksDiv{
-        flex-basis: 24%;
-    }
-    .footerLinks{
-        justify-content: flex-start;
-        margin-left: 48px;
-        max-width: 100%;
-    }
-}
+  }
