@@ -10,6 +10,7 @@ import CategoryPage from './components/pages/categorypage/CategoryPage';
 import ArticlesPage from './components/pages/articlespage/ArticlesPage';
 import StoriesPage from './components/pages/storiespage/StoriesPage';
 import CardsPage from './components/pages/cardspage/CardsPage';
+import CookieOverlay from './components/overlays/Cookies/CookieOverlay';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cards/" element={<CardsPage/>}/>
       </Routes>
       <Footer/>
+      <CookieOverlay/>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import { useState,useEffect } from 'react';
-import classes from './css/CardSet.module.css'
 import {Link} from 'react-router-dom';
 import LineDiamondLine from '../ui/linediamondline/LineDiamondLine';
 import CardSetItem from './CardSetItem';
 import callAxios from '../../util/callAxios';
 import ReactPaginate from "react-paginate";
+import classes from './css/CardSet.module.css'
 
 const PER_PAGE = 30;
 
@@ -67,10 +67,10 @@ const CardSet = (props) => {
     }
 
     return (
-        <div className={classes.cardMediumSetWrapper}> 
+        <div className={classes.cardSetWrapper}> 
             <LineDiamondLine/>
-            <div className={classes.cardMediumSetTitle}><h4><Link to={"/cards"}><span className={classes.arrow}>{props.title}</span></Link></h4></div>
-            <div className={classes.cardMediumSetItemWrapper}>
+            <div className={classes.cardSetTitle}><h4><Link to={"/cards"}><span className={classes.arrow}>{props.title}</span></Link></h4></div>
+            <div className={classes.cardSetItemWrapper}>
                 {currentPageData}
             </div>
             {reactPaginate}

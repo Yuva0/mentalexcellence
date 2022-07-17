@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
+import fetchDate from '../../util/fetchDate';
 import classes from './css/ArticleHeader.module.css';
 
 const ArticleHeader = (props) => {
-
-  const date = new Date(props.date);
-
-  const month = date.toLocaleString('en-US',{month: "long"});
-  const day = date.toLocaleString('en-US', { day: '2-digit'});
-  const year = date.getFullYear();
+  
+  const [day,month,year] = fetchDate(props.date);
 
   let categories;
   if(props.category){
-    categories = props.category.map((category,index, length) => {
+    categories = props.category.map((category,index) => {
       return (<span key={index}><Link to={"/category/"+category.toLowerCase()} key={index}>
         {category.charAt(0).toUpperCase() + category.slice(1)}
       </Link>&nbsp;  &nbsp;   </span>);

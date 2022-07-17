@@ -45,8 +45,8 @@
 .footerMenuHeader{
     width:150px;
     min-width: 150px;
-    border-right: 1px solid grey;
-    color:black;
+    border-right: 1px solid #dee2e6;
+    color:#dee2e6;
 }
 .footerMenuContent{
     display: flex;

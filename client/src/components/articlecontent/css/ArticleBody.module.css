@@ -4,7 +4,7 @@
 }
 
 .articleBody p,.articleBody h1,.articleBody h2,.articleBody h3,.articleBody h4,.articleBody h5,.articleBody h6{
-  margin:8px 0;
+  margin:4px 0;
 }
 
 .articleBody li{
@@ -27,8 +27,3 @@
   font-style: normal;
   word-spacing:normal;
 }
-
-/* .articleBody li:not(:last-child){
-  margin-bottom: 8px;
-} */
-

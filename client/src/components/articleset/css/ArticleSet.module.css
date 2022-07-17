@@ -1,12 +1,12 @@
-.mediumSetWrapper{
+.articleSetWrapper{
   margin-top:18px;
 }
 
-.mediumSetTitle{
+.articleSetTitle{
     margin-bottom: 12px;
 }
   
-.mediumSetCollection{
+.articleSetCollection{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -63,17 +63,17 @@
 
 /* iPad Devices */
 @media only screen and (max-width: 1200px) {
-  .mediumSetCollection{
+  .articleSetCollection{
     column-gap:24px;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .mediumSetCollection{
+  .articleSetCollection{
     display: flex;
     flex-direction: column;
   }
-  .mediumSetTitle{
+  .articleSetTitle{
     margin-bottom: 4px;
   }
 }

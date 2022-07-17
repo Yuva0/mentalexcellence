@@ -4,9 +4,9 @@ import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import {Link} from 'react-router-dom';
 import classes from './css/ArticleSet.module.css';
+import ReactPaginate from "react-paginate";
 import ArticleSetItem from './ArticleSetItem.js';
 import callAxios from '../../util/callAxios';
-import ReactPaginate from "react-paginate";
 
 const PER_PAGE = 12;
 
@@ -18,6 +18,7 @@ const ArticleSet = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchPosts = async () => {
       if (props.time === "latest" && props.type === "article") {
         let query="";
@@ -38,8 +39,11 @@ const ArticleSet = (props) => {
       }
       setIsLoading(false);
     }
+    if(isMounted)
+      fetchPosts();
 
-    fetchPosts();
+    return () => { isMounted = false };
+    
   }, [props.time, props.type, params.category, props.limit]);
   
   let currentPageData,pageCount,reactPaginate;
@@ -77,9 +81,9 @@ const ArticleSet = (props) => {
  
 
   return (
-    <div className={classes.mediumSetWrapper}>
-      <div className={`${classes.mediumSetTitle} title`}><h3><Link to={"/articles"}><span className={classes.arrow}>{props.title} </span></Link></h3></div>
-      <div className={classes.mediumSetCollection}>
+    <div className={classes.articleSetWrapper}>
+      <div className={`${classes.articleSetTitle} title`}><h3><Link to={"/articles"}><span className={classes.arrow}>{props.title} </span></Link></h3></div>
+      <div className={classes.articleSetCollection}>
         {currentPageData}
       </div>
       {reactPaginate}
