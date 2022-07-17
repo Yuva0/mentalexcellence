@@ -50,7 +50,7 @@ const CookieOverlay = () => {
     };
     return (
         <div className={`${cookieBanner && classes.showOverlay} ${classes.cookiesOverlayWrapper}`}>
-            <h4>Can we use cookies to save your preferences?</h4>
+            <h4>This website collects cookies to deliver better user experience.<a rel="noreferrer" target="_blank" href="https://www.privacypolicies.com/live/8012f3b7-c660-46d6-b1b5-cfc3cfe747ca"> <u>Learn More</u></a></h4>
             <button className={classes.acceptButton} onClick={() => cookieHandler(0)}>
                 <span className={classes.faicon}>
                 <FontAwesomeIcon icon={faCheck} />
