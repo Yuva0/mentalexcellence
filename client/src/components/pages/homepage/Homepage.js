@@ -4,7 +4,7 @@ import CoverPage from '../../coverpage/CoverPage';
 import ArticleSet from '../../articleset/ArticleSet';
 import StorySet from '../../storyset/StorySet';
 import Qotd from '../../qotd/Qotd';
-// import CardSet from '../../cardset/CardSet';
+import CardSet from '../../cardset/CardSet';
 
 const Homepage = (props) => {
   // Calculate window width - Do not use hooks!
@@ -19,7 +19,7 @@ const Homepage = (props) => {
        <Qotd/>
        <ArticleSet title="Latest Articles" time="latest" type="article" limit="3"/>
        {storySet}
-       {/* <CardSet title="Latest Cards!" limit="6" time="latest" type="card"/> */}
+       <CardSet title="Latest Cards" limit="6" time="latest" type="card"/>
     </div>
   );
 };

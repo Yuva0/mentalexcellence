@@ -76,7 +76,7 @@ const SettingsPopup = (props, ref) => {
   }
 
   return (
-    <div ref={ref} className={`${!props.display && classes.hidePopup} ${classes.popup}`}>
+    <div ref={ref} className={`${props.display && classes.showPopup} ${classes.popup}`}>
       <div className={classes.popupItem}>
         <div className={classes.popupItemTitle}><h4>Theme :</h4></div>
         <ul className={classes.popupItemVal}>

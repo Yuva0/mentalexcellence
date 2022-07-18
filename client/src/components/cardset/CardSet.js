@@ -50,7 +50,7 @@ const CardSet = (props) => {
     else{
         pageCount = Math.ceil(cards.length / PER_PAGE);
         const offset = currentPage * PER_PAGE;
-        currentPageData = cards.slice(offset, offset + PER_PAGE).map((card,index) => <CardSetItem key={index} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/>);
+        currentPageData = cards.slice(offset, offset + PER_PAGE).map((card,index) => <CardSetItem key={index} keyVal={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/>);
 
         if(cards.length < PER_PAGE){
             reactPaginate = undefined;
@@ -69,7 +69,7 @@ const CardSet = (props) => {
     return (
         <div className={classes.cardSetWrapper}> 
             <LineDiamondLine/>
-            <div className={classes.cardSetTitle}><h4><Link to={"/cards"}><span className={classes.arrow}>{props.title}</span></Link></h4></div>
+            <div className={classes.cardSetTitle}><h3><Link to={"/cards"}><span className={classes.arrow}>{props.title} </span></Link></h3></div>
             <div className={classes.cardSetItemWrapper}>
                 {currentPageData}
             </div>

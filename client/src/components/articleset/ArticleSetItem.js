@@ -14,17 +14,17 @@ const ArticleSetItem = (props) => {
       categoryInner = categoryInner + firstLetterUpper(props.category[i]) + ", ";
     }
     let categoryVal = categoryInner+firstLetterUpper(props.category[props.category.length-1]);
-    category = <div className={classes.category}><h5>{categoryVal}</h5></div>
+    category = <div className={classes.category}><h6>{categoryVal}</h6></div>
   }
 
   let ribbon;
   let duration;
   if (props.durationType === 3){
-    ribbon = <span className={classes.ribbon}><h5>Detailed</h5></span>
-    duration = <div className={classes.durationGold}><h5>{props.duration} min read </h5></div>
+    ribbon = <span className={classes.ribbon}><h6>Detailed</h6></span>
+    duration = <div className={classes.durationGold}><h6>{props.duration} min read </h6></div>
   }
   else{
-    duration = <div className={classes.duration}><h5>{props.duration} min read </h5></div>
+    duration = <div className={classes.duration}><h6>{props.duration} min read </h6></div>
   }
 
   return (
@@ -36,9 +36,9 @@ const ArticleSetItem = (props) => {
       </div>
       <div className={classes.content}>
         <div className={classes.title}><h3>{props.title}</h3></div>
-        <div className={classes.date}><h5>{day} {month} {year}</h5></div>
+        <div className={classes.date}><h6>{day} {month} {year}</h6></div>
         {category}
-        <div className={classes.description}><h4>{props.description}</h4></div>
+        <div className={classes.description}><h5>{props.description}</h5></div>
         {duration}
       </div>
       </Link>

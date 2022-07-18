@@ -12,7 +12,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   column-gap: 48px;
-  row-gap: 36px;
+  row-gap: 12px;
   margin-bottom: 24px;
 }
 
@@ -53,7 +53,7 @@
 .pagination__link__active a{
   color:var(--colorTheme);
   background: var(--mainTheme);
-  border:1px solid rgb(198,197,202);
+  border:1px solid var(--mainTheme);
 }
 
 .pagination__link__disabled a{

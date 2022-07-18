@@ -126,6 +126,10 @@ strong{
   background: var(--mainTheme) !important;
 }
 
+.hideOverflow{
+  overflow: hidden;
+}
+
 /* iPad Devices */
 @media only screen and (max-width: 1000px) {
   .homepage{

@@ -13,19 +13,28 @@ const CardSchema = new mongoose.Schema(
     },
     coverImage: {
       type:String,
-      required:true,
-      unique:true
+      required:true
+    },
+    imageCaption:{
+      type:String
     },
     imageAlt: {
       type: String,
       required:true
     },
-    // can be philosopher/mindset etc
+    content: {
+      type:String
+    },
+    // can be philosophy/mindset etc
     category: {
       type:Array
     },
+    // can be philosopher etc
+    subcategory: {
+      type:Array
+    },
     coverpage: {
-      type:Boolean
+      type: Boolean
     }
   },
   { timestamps: true }

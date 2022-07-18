@@ -1,0 +1,30 @@
+.cardBody{
+    width:100%;
+    word-spacing:3px;
+}
+
+.cardBody p,.cardBody h1,.cardBody h2,.cardBody h3,.cardBody h4,.cardBody h5,.cardBody h6{
+    margin:4px 0;
+}
+
+.cardBody li{
+    list-style-type:disc;
+    font-size: 18px;
+}
+
+.cardBody img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.cardBody img + em{
+    display: block;
+    text-align: center;
+    font-size:16px;
+    font-style: normal;
+    word-spacing:normal;
+}
+  

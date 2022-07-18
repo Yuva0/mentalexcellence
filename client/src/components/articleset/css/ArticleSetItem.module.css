@@ -26,14 +26,15 @@
   
   .image img{
     width:100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px 10px 0 0;
     z-index: -1;
   }
   
   .ribbon{
     position: absolute;
-    z-index: 100;
+    z-index: 2;
     width:90px;
     max-width: 40%;
     height:26px;
@@ -69,7 +70,7 @@
   }
   
   .content{
-    padding:10px 24px 24px 20px;
+    padding:8px 24px 16px 20px;
   }
   
   .title{
@@ -79,7 +80,7 @@
   
   .date{
     color:var(--accentTheme);
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
   
   .category{
@@ -103,6 +104,9 @@
 @media only screen and (max-width: 900px) {
   .description{
     display: none;
+  }
+  .category{
+    margin-bottom: 2px;
   }
 }
 
@@ -131,8 +135,7 @@
     }
   
     .image img{
-      max-width: 100%;
-      border-radius: 10px 10px 10px 10px;
+      border-radius: 10px 0px 0px 10px;
     }
   
     .title, .date, .category, .description{
@@ -181,6 +184,10 @@
   
     .image{
       width: 100%;
+    }
+
+    .image img{
+      border-radius: 10px;
     }
   
     .content{
