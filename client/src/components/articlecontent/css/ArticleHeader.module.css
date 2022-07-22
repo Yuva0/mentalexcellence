@@ -48,6 +48,10 @@
   color:var(--mainTheme);
 }
 
+.imageCaption a:hover{
+  text-decoration: underline;
+}
+
 .imageCaption p{
   font-size: 14px;
 }

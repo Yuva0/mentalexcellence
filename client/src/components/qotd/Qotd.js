@@ -1,6 +1,6 @@
 import classes from './css/Qotd.module.css';
 import QotdContent from './QotdContent';
-import callAxios from '../../util/callAxios';
+import getAxiosRequest from '../../util/getAxiosRequest';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import { useState, useEffect } from 'react';
@@ -13,7 +13,7 @@ const Qotd = () => {
     useEffect(() => {
         let isMounted = true
         const fetchQuote = async() => {
-            const res = await callAxios("qotd/");
+            const res = await getAxiosRequest("qotd/");
             setQuote(res.data);
             setIsLoading(false);
         }

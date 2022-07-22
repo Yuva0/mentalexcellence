@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import classes from './css/ArticleSet.module.css';
 import ReactPaginate from "react-paginate";
 import ArticleSetItem from './ArticleSetItem.js';
-import callAxios from '../../util/callAxios';
+import getAxiosRequest from '../../util/getAxiosRequest';
 
 const PER_PAGE = 12;
 
@@ -29,11 +29,11 @@ const ArticleSet = (props) => {
           query = query + "limit=" + props.limit +"&";
         }
         if(query){
-          const res = await callAxios("articles/?"+ query +"coverpage=false");
+          const res = await getAxiosRequest("articles/?"+ query +"coverpage=false");
           setPosts(res.data);
         }
         else{
-          const res = await callAxios("articles/?coverpage=false");
+          const res = await getAxiosRequest("articles/?coverpage=false");
           setPosts(res.data);
         }
       }

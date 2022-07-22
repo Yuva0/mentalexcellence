@@ -33,6 +33,24 @@ router.put("/:title", async (req, res) => {
   }
 });
 
+// Like an article
+router.post("/:_id/like", async (req, res) => {
+  try{
+    try{
+      const type = req.body.type;
+      const counter = type === 'like' ? 1:-1;
+      const updatedArticle = await Article.updateOne({_id:req.params._id},{$inc:{likes_count: counter}},{new:true});
+      res.status(200).json(updatedArticle);
+    }
+    catch(err){
+      res.status(500).json(err);
+    }
+  }
+  catch(err){
+    res.status(500).json(err);
+  }
+});
+
 // GET Article BY IDTITLE
 router.get("/:idTitle", async (req,res) => {
   try{

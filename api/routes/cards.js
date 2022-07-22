@@ -33,6 +33,24 @@ router.put("/:key", async (req, res) => {
   }
 });
 
+// Like a card
+router.post("/:_id/like", async (req, res) => {
+  try{
+    try{
+      const type = req.body.type;
+      const counter = type === 'like' ? 1:-1;
+      const updatedCard = await Card.updateOne({_id:req.params._id},{$inc:{likes_count: counter}},{new:true});
+      res.status(200).json(updatedCard);
+    }
+    catch(err){
+      res.status(500).json(err);
+    }
+  }
+  catch(err){
+    res.status(500).json(err);
+  }
+});
+
 // GET Card BY Key
 router.get("/:key", async (req,res) => {
   try{

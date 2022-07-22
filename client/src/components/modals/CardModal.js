@@ -1,8 +1,9 @@
 import { Fragment,useEffect,useState } from 'react';
 import ReactDOM from 'react-dom';
-import callAxios from '../../util/callAxios';
+import getAxiosRequest from '../../util/getAxiosRequest';
 import CardHeader from '../cardcontent/CardHeader';
 import CardBody from '../cardcontent/CardBody';
+import LikeButton from '../ui/likeButton/LikeButton';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,7 +34,7 @@ const CardModal = (props) => {
     useEffect(() => {
         let isMounted = true;
         const fetchCard = async () => {
-            const res = await callAxios("cards/"+props.keyVal);
+            const res = await getAxiosRequest("cards/"+props.keyVal);
             setCard(res.data);
             setIsLoading(false);
         }
@@ -51,8 +52,16 @@ const CardModal = (props) => {
         content = <ReactSpinner/>
     }
     else{
-        content = <Fragment><CardHeader name={card[0].name} coverImage={card[0].coverImage} imageCaption = {card[0].imageCaption} imageAlt={card[0].imageAlt} category={card[0].category}/>
-            <CardBody content={card[0].content}/></Fragment>;
+        content = <Fragment>
+                    <CardHeader name={card[0].name} coverImage={card[0].coverImage} imageCaption = {card[0].imageCaption} imageAlt={card[0].imageAlt} category={card[0].category}/>
+                    <CardBody content={card[0].content}/>
+                    <div className={classes.interactionEvents}>
+                        <div className={classes.interactionEventsTitle}><h4>Loved it? Show it!</h4></div>
+                        <div className={classes.interactionEventsContent}>
+                            <span className={classes.likeButton}><LikeButton contentType="cards" likes_count = {card[0].likes_count} _id={card[0]._id}/></span>
+                        </div>
+                    </div>
+                </Fragment>;
     }
     return (
         <Fragment>

@@ -27,3 +27,11 @@
   font-style: normal;
   word-spacing:normal;
 }
+
+.articleBody a{
+  color:var(--mainTheme);
+}
+
+.articleBody a:hover{
+ text-decoration: underline;
+}

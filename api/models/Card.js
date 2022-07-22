@@ -35,6 +35,9 @@ const CardSchema = new mongoose.Schema(
     },
     coverpage: {
       type: Boolean
+    },
+    likes_count:{
+      type:Number
     }
   },
   { timestamps: true }

@@ -12,7 +12,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   column-gap: 48px;
-  row-gap: 12px;
+  row-gap: 48px;
   margin-bottom: 24px;
 }
 
@@ -76,4 +76,15 @@
   .articleSetTitle{
     margin-bottom: 4px;
   }
+  .articleSetCollection{
+    row-gap: 24px;
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+  .articleSetCollection{
+    row-gap: 12px;
+  }
+
 }

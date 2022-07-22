@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const postRoute = require("./routes/posts");
 const qotdRoute = require("./routes/qotd");
 const cardRoute = require("./routes/cards");
 const articleRoute = require("./routes/articles");
@@ -20,7 +19,6 @@ mongoose
 app.use(cors());
 
 
-app.use("/api/posts", postRoute);
 app.use("/api/qotd", qotdRoute);
 app.use("/api/cards", cardRoute);
 app.use("/api/articles", articleRoute);

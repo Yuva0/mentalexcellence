@@ -5,7 +5,7 @@ import 'react-spinning-wheel/dist/style.css';
 import classes from './css/StorySet.module.css';
 import {Link} from 'react-router-dom';
 import StorySetItem from './StorySetItem.js';
-import callAxios from '../../util/callAxios';
+import getAxiosRequest from '../../util/getAxiosRequest';
 import ReactPaginate from "react-paginate";
 
 const PER_PAGE = 20;
@@ -28,11 +28,11 @@ const StorySet = (props) => {
           query = query + "limit=" + props.limit +"&";
         }
         if(query){
-          const res = await callAxios("stories/?"+ query +"coverpage=false");
+          const res = await getAxiosRequest("stories/?"+ query +"coverpage=false");
           setPosts(res.data);
         }
         else{
-          const res = await callAxios("stories/?coverpage=false");
+          const res = await getAxiosRequest("stories/?coverpage=false");
           setPosts(res.data);
         }
         setIsLoading(false);

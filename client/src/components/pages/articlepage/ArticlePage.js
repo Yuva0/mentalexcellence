@@ -6,7 +6,8 @@ import 'react-spinning-wheel/dist/style.css';
 
 import ArticleHeader from '../../articlecontent/ArticleHeader';
 import ArticleBody from '../../articlecontent/ArticleBody';
-import callAxios from '../../../util/callAxios';
+import getAxiosRequest from '../../../util/getAxiosRequest';
+import LikeButton from '../../ui/likeButton/LikeButton';
 
 const ArticlePage = (props) => {
   const [post, setPost] = useState([{title:"",content:"",date:""}]);
@@ -15,16 +16,10 @@ const ArticlePage = (props) => {
   const params = useParams();
   useEffect(() => {
     const fetchPost = async () => {
-      if(props.type === "article"){
-        const res = await callAxios("articles/"+params.idTitle);
-        setPost(res.data);
-        setIsLoading(false);
-      }
-      else if(props.type === "story"){
-        const res = await callAxios("stories/"+params.idTitle);
-        setPost(res.data);
-        setIsLoading(false);
-      }
+      const res = await getAxiosRequest(props.type+"/"+params.idTitle);
+      setPost(res.data);
+      setIsLoading(false);
+      
     }
     fetchPost();
   },[params.idTitle,props.type]);
@@ -41,6 +36,13 @@ const ArticlePage = (props) => {
       <div className={classes.articlepage}>
         <ArticleHeader title = {post[0].title} date={post[0].createdAt} author={post[0].author} category={post[0].category} coverImage={post[0].coverImage} duration = {post[0].duration} imageCaption = {post[0].imageCaption} imageAlt={post[0].imageAlt}/>
         <ArticleBody content = {post[0].content}/>
+        <div className={classes.interactionEvents}>
+          <div className={classes.interactionEventsTitle}><h4>Loved it? Show it!</h4></div>
+          <div className={classes.interactionEventsContent}>
+            <span className={classes.likeButton}><LikeButton contentType={props.type} likes_count = {post[0].likes_count} _id={post[0]._id}/></span>
+          </div>
+        </div>
+        
       </div>
     );
   }

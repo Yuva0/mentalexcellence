@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import LineDiamondLine from '../ui/linediamondline/LineDiamondLine';
 import CardSetItem from './CardSetItem';
-import callAxios from '../../util/callAxios';
+import getAxiosRequest from '../../util/getAxiosRequest';
 import ReactPaginate from "react-paginate";
 import classes from './css/CardSet.module.css'
 
@@ -25,11 +25,11 @@ const CardSet = (props) => {
                     query = query + "limit=" + props.limit +"&";
                 }
                 if(query){
-                    const res = await callAxios("cards/?"+ query +"coverpage=false");
+                    const res = await getAxiosRequest("cards/?"+ query +"coverpage=false");
                     setCards(res.data);
                 }
                 else{
-                    const res = await callAxios("cards/?"+query+"coverpage=false");
+                    const res = await getAxiosRequest("cards/?"+query+"coverpage=false");
                     setCards(res.data);
                 }
             }

@@ -24,8 +24,8 @@
   }
 
   .modalWithScroll{
-    max-height: 80vh;
-    padding: 4px 24px 40px 24px;
+    /* max-height: 80vh; */
+    padding: 4px 24px 24px 24px;
     overflow-y: scroll;
     animation: expand 800ms ease-out forwards;
   }
@@ -64,6 +64,23 @@
       max-height: 80vh;
       overflow-y: scroll;
     }
+  }
+
+  .interactionEvents{
+    margin-top:32px;
+  }
+
+  .interactionEventsTitle{
+    font-family: var(--titleFont);
+    color:var(--accentTheme);
+  }
+
+  .interactionEventsContent{
+    margin-top:8px;
+  }
+
+  .likeButton{
+    display: inline-block;
   }
 
   @media (max-width: 1200px) {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const callAxios = (url) => {
+const getAxiosRequest = (url) => {
     const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL});
 
     const fetch = async() => {
@@ -12,4 +12,4 @@ const callAxios = (url) => {
     return res;
 };
 
-export default callAxios;
+export default getAxiosRequest;

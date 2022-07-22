@@ -44,6 +44,24 @@ router.get("/:idTitle", async (req,res) => {
   }
 });
 
+// Like a story
+router.post("/:_id/like", async (req, res) => {
+  try{
+    try{
+      const type = req.body.type;
+      const counter = type === 'like' ? 1:-1;
+      const updatedStory = await Story.updateOne({_id:req.params._id},{$inc:{likes_count: counter}},{new:true});
+      res.status(200).json(updatedStory);
+    }
+    catch(err){
+      res.status(500).json(err);
+    }
+  }
+  catch(err){
+    res.status(500).json(err);
+  }
+});
+
 //GET ALL Stories
 router.get("/", async (req,res) => {
   try{

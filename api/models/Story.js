@@ -42,6 +42,9 @@ const StorySchema = new mongoose.Schema(
     },
     duration:{
       type:Number
+    },
+    likes_count:{
+      type:Number
     }
   },
   { timestamps: true }
