@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import classes from './css/ArticlePage.module.css';
 import { ReactSpinner } from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
-
 import ArticleHeader from '../../articlecontent/ArticleHeader';
 import ArticleBody from '../../articlecontent/ArticleBody';
 import getAxiosRequest from '../../../util/getAxiosRequest';
