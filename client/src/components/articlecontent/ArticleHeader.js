@@ -19,7 +19,7 @@ const ArticleHeader = (props) => {
   let headercontent=null,setImageToHalf=true;
   if(props.author){
     headercontent = <div className={classes.headercontent}><span><h5>{`Author: ${props.author}`}</h5></span><span><h5>{props.duration} min read</h5></span><span><h5>{day} {month} {year}</h5></span></div>;
-    setImageToHalf=true;
+    setImageToHalf=false;
   }
 
   return (
