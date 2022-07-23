@@ -50,7 +50,7 @@ const CardSet = (props) => {
     else{
         pageCount = Math.ceil(cards.length / PER_PAGE);
         const offset = currentPage * PER_PAGE;
-        currentPageData = cards.slice(offset, offset + PER_PAGE).map((card,index) => <CardSetItem key={index} keyVal={card.key} name={card.name} image={card.coverImage} alt={card.imageAlt} status={card.status}/>);
+        currentPageData = cards.slice(offset, offset + PER_PAGE).map((card) => <CardSetItem key={card._id} _id={card._id} idTitle={card.idTitle} name={card.title} image={card.coverImage} alt={card.imageAlt}/>);
 
         if(cards.length < PER_PAGE){
             reactPaginate = undefined;

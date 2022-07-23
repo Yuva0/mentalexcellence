@@ -17,7 +17,7 @@ const CardHeader = (props) => {
   return (
     <div className={classes.cardHeader}>
       <div className={classes.navigation}><h4>{categories}</h4></div>
-      <div className={classes.name}><h1>{props.name}</h1></div>
+      <div className={classes.name}><h1>{props.title}</h1></div>
       <div className={classes.imageWithCaption}>
         <div className={classes.image}><img src={props.coverImage} alt={props.imageAlt}/></div>
         <div className={classes.imageCaption}><ReactMarkdown>{props.imageCaption}</ReactMarkdown></div>

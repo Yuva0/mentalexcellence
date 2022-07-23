@@ -52,9 +52,9 @@ router.post("/:_id/like", async (req, res) => {
 });
 
 // GET Card BY Key
-router.get("/:key", async (req,res) => {
+router.get("/:idTitle", async (req,res) => {
   try{
-    const card = await Card.find({"key": req.params.key});
+    const card = await Card.find({"idTitle": req.params.idTitle});
     res.status(200).json(card);
   }
   catch(err){

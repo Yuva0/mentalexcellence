@@ -83,6 +83,10 @@
     display: inline-block;
   }
 
+  .modal a{
+    color: var(--mainTheme);
+  }
+
   @media (max-width: 1200px) {
     .modal {
       width: 600px;

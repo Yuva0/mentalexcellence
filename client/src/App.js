@@ -20,10 +20,11 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/article/:idTitle" element={<ArticlePage type="articles"/>}/>
         <Route path="/story/:idTitle" element={<ArticlePage type="stories"/>}/>
+        <Route path="/card/:name" element={<ArticlePage type="cards"/>}/>
         <Route path="/category/:category" element={<CategoryPage/>}/>
         <Route path="/articles/" element={<ArticlesPage/>}/>
         <Route path="/stories/" element={<StoriesPage/>}/>
-        <Route path="/cards/:name" element={<CardsPage type="cards"/>}/>
+        <Route path="/cards/" element={<CardsPage/>}/>
       </Routes>
       <Footer/>
       <CookieOverlay/>

@@ -34,7 +34,7 @@ const CardModal = (props) => {
     useEffect(() => {
         let isMounted = true;
         const fetchCard = async () => {
-            const res = await getAxiosRequest("cards/"+props.keyVal);
+            const res = await getAxiosRequest("cards/"+props.idTitle);
             setCard(res.data);
             setIsLoading(false);
         }
@@ -43,7 +43,7 @@ const CardModal = (props) => {
             fetchCard();
 
         return () => { isMounted = false };
-    },[props.keyVal]);
+    },[props.idTitle]);
 
 
     let content;
@@ -53,7 +53,7 @@ const CardModal = (props) => {
     }
     else{
         content = <Fragment>
-                    <CardHeader name={card[0].name} coverImage={card[0].coverImage} imageCaption = {card[0].imageCaption} imageAlt={card[0].imageAlt} category={card[0].category}/>
+                    <CardHeader title={card[0].title} coverImage={card[0].coverImage} imageCaption = {card[0].imageCaption} imageAlt={card[0].imageAlt} category={card[0].category}/>
                     <CardBody content={card[0].content}/>
                     <div className={classes.interactionEvents}>
                         <div className={classes.interactionEventsTitle}><h4>Loved it? Show it!</h4></div>

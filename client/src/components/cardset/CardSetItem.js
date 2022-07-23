@@ -23,7 +23,7 @@ const CardMediumSetItem = (props) => {
                 <img src={props.image} alt={props.alt}/>
                 <div className={classes.cardDescription}>{props.name}</div>
             </div>
-            {cardModalActive && <CardModal keyVal={props.keyVal} onClose={closeModalHandler}/>}
+            {cardModalActive && <CardModal idTitle={props.idTitle} onClose={closeModalHandler}/>}
         </Fragment>
     );
 };

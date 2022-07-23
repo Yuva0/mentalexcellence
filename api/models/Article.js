@@ -19,7 +19,8 @@ const ArticleSchema = new mongoose.Schema(
       type:String
     },
     coverImage:{
-      type:String
+      type:String,
+      required:true
     },
     imageCaption:{
       type:String
