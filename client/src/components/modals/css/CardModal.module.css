@@ -33,8 +33,13 @@
 
   .closeModal{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    align-items: center;
     font-size: 24px;
+    color:var(--accentTheme);
+  }
+
+  .articleMode a{
     color:var(--accentTheme);
   }
 
@@ -85,6 +90,10 @@
 
   .modal a{
     color: var(--mainTheme);
+  }
+
+  .modal a:hover{
+    text-decoration: underline;
   }
 
   @media (max-width: 1200px) {

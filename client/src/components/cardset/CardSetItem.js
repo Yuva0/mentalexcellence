@@ -9,12 +9,12 @@ const CardMediumSetItem = (props) => {
 
     const cardClickHandler = () => {
         setCardModalActive(() => true);
-        document.getElementsByTagName("BODY")[0].classList.add("hideOverflow");
+        document.getElementsByTagName("body")[0].classList.add("hideOverflow");
     }
 
     const closeModalHandler = () => {
         setCardModalActive(() => false);
-        document.getElementsByTagName("BODY")[0].classList.remove("hideOverflow");
+        document.getElementsByTagName("body")[0].classList.remove("hideOverflow");
     }
 
     return (

@@ -14,16 +14,21 @@ const ArticleHeader = (props) => {
         {category.charAt(0).toUpperCase() + category.slice(1)}
       </Link>&nbsp;  &nbsp;   </span>);
     });
-    
+  }
+
+  let headercontent=null,setImageToHalf=true;
+  if(props.author){
+    headercontent = <div className={classes.headercontent}><span><h5>{`Author: ${props.author}`}</h5></span><span><h5>{props.duration} min read</h5></span><span><h5>{day} {month} {year}</h5></span></div>;
+    setImageToHalf=true;
   }
 
   return (
     <div className={classes.articleHeader}>
       <div className={classes.navigation}><h4>{categories}</h4></div>
       <div className={classes.title}><h1>{props.title}</h1></div>
-      <div className={classes.headercontent}><span><h5>{`Author: ${props.author}`}</h5></span><span><h5>{props.duration} min read</h5></span><span><h5>{day} {month} {year}</h5></span></div>
+      {headercontent}
       <div className={classes.imageWithCaption}>
-        <div className={classes.image}><img src={props.coverImage} alt={props.imageAlt}/></div>
+        <div className={`${classes.image} ${setImageToHalf && classes.imageToHalf}`}><img src={props.coverImage} alt={props.imageAlt}/></div>
         <div className={classes.imageCaption}><ReactMarkdown>{props.imageCaption}</ReactMarkdown></div>
       </div>
     </div>

@@ -16,7 +16,6 @@
 }
 
 .headercontent{
-  margin-bottom: 24px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -27,6 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 24px;
 }
 
 .image{
@@ -44,6 +44,10 @@
   border-radius: 2%;
 }
 
+.imageToHalf img{
+  width: 50%;
+}
+
 .imageCaption a{
   color:var(--mainTheme);
 }
@@ -54,4 +58,10 @@
 
 .imageCaption p{
   font-size: 14px;
+}
+
+@media (max-width: 600px){
+  .imageToHalf img{
+    width: 100%;
+  }
 }

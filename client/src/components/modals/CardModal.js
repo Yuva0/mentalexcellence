@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import classes from './css/CardModal.module.css';
+import { Link } from 'react-router-dom';
 
 const Backdrop = (props) => {
     return <div className={classes.backdrop} onClick={props.onClose}/>
@@ -28,7 +29,7 @@ const ModalOverlay = (props) => {
 const portalElement = document.getElementById('modal');
 
 const CardModal = (props) => {
-    const [card, setCard] = useState([{name:"",content:""}]);
+    const [card, setCard] = useState([{title:"",content:"",idTitle:""}]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -45,6 +46,9 @@ const CardModal = (props) => {
         return () => { isMounted = false };
     },[props.idTitle]);
 
+    const navigationToArticleHandler = () =>{
+        document.getElementsByTagName("body")[0].classList.remove("hideOverflow");
+    }
 
     let content;
 
@@ -68,7 +72,10 @@ const CardModal = (props) => {
             {ReactDOM.createPortal(<Backdrop onClose={props.onClose}/>, portalElement)}
             {ReactDOM.createPortal(
             <ModalOverlay>
-                <div className={classes.closeModal}><span><FontAwesomeIcon icon={faTimes} onClick={props.onClose}/></span></div>
+                <div className={classes.closeModal}>
+                    <span className={classes.articleMode}><Link to={"/card/"+card[0].idTitle} onClick={navigationToArticleHandler}><h6>Switch to article mode</h6></Link></span>
+                    <span><FontAwesomeIcon icon={faTimes} onClick={props.onClose}/></span>
+                </div>
                 {content}
             </ModalOverlay>, portalElement)}
         </Fragment>
